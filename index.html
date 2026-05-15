@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pneumologista em Jaboatão | Dr. Lucas Pereira de Souza</title>
+<meta name="description" content="Pneumologista em Jaboatão. Dr. Lucas Pereira de Souza — CRM-PE 9777. Clínica Jaboatão Centro.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0f2236;--steel:#1e3a52;--sky:#4a90b8;--ice:#e8f4f8;--soft:#f5f8fa;--text:#1a2e3d;--muted:#6b8a9a;--accent:#2e7da6;--green:#25D366;--border:#d0e4ef;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--soft);font-size:16px;}
+header{background:var(--navy);padding:20px;text-align:center;}
+header h1{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:500;color:white;line-height:1.3;}
+header p{font-size:15px;color:rgba(255,255,255,0.7);margin-top:5px;}
+.hero{background:linear-gradient(160deg,var(--navy) 0%,var(--steel) 60%,#1a4a6e 100%);padding:24px 20px 28px;text-align:center;color:white;}
+.logo-wrap{width:110px;height:110px;border-radius:50%;overflow:hidden;border:2px solid rgba(255,255,255,0.2);margin:0 auto 20px;box-shadow:0 8px 32px rgba(0,0,0,0.3);background:rgba(255,255,255,0.05);}
+.logo-wrap img{width:100%;height:100%;object-fit:cover;}
+.eyebrow{font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--sky);margin-bottom:12px;font-weight:600;}
+.hero h2{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:500;color:white;line-height:1.3;margin-bottom:6px;}
+.hero h2 span{font-weight:600;color:#a8d4ea;display:block;}
+.hero-sub{font-size:15px;color:rgba(255,255,255,0.65);margin-bottom:8px;}
+.crm{display:inline-flex;gap:12px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:7px 18px;font-size:12px;color:rgba(255,255,255,0.7);margin:8px 0 16px;}
+.btns{display:flex;flex-direction:column;gap:10px;max-width:380px;margin:0 auto;}
+.btn-wa{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--green);color:white;text-decoration:none;padding:16px;border-radius:100px;font-size:16px;font-weight:600;box-shadow:0 4px 20px rgba(37,211,102,0.35);}
+.btn-ag{display:flex;align-items:center;justify-content:center;gap:8px;background:transparent;color:white;text-decoration:none;padding:15px;border-radius:100px;font-size:15px;font-weight:500;border:2px solid rgba(255,255,255,0.4);}
+.disp{max-width:420px;margin:28px auto 0;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:16px 20px;text-align:left;}
+.disp-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--sky);margin-bottom:8px;font-weight:500;}
+.disp-info{font-size:16px;color:white;font-weight:600;}
+.disp-sub{font-size:14px;color:rgba(255,255,255,0.65);margin-top:4px;}
+.sugestao-alt{max-width:420px;margin:14px auto 0;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:14px 16px;text-align:left;}
+.alt-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);display:block;margin-bottom:6px;}
+.alt-info strong{font-size:14px;color:rgba(255,255,255,0.85);display:block;}
+.alt-data{font-size:12px;color:rgba(255,255,255,0.5);margin-top:2px;display:block;margin-bottom:10px;}
+.btn-alt{display:inline-block;padding:8px 16px;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.8);text-decoration:none;border-radius:8px;font-size:13px;font-weight:500;border:1px solid rgba(255,255,255,0.2);}
+.container{max-width:560px;margin:0 auto;padding:36px 20px 56px;}
+.slabel{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:8px;font-weight:500;}
+.stitle{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:400;color:var(--navy);margin-bottom:22px;line-height:1.2;}
+.form-card{background:white;border-radius:16px;padding:24px;border:1px solid var(--border);}
+.ubox{background:var(--ice);border:1.5px solid var(--accent);border-radius:12px;padding:14px 16px;margin-bottom:20px;}
+.ubox-top{font-size:16px;font-weight:600;color:var(--navy);}
+.ubox-mid{font-size:13px;color:var(--muted);margin-top:3px;}
+.ubox-bot{font-size:14px;color:var(--accent);margin-top:6px;font-weight:500;}
+.aviso{background:#fff8e1;border:1px solid #ffe082;border-radius:10px;padding:14px 16px;font-size:14px;color:#856404;margin-bottom:18px;line-height:1.5;display:none;}
+.fg{margin-bottom:20px;}
+label{display:block;font-size:14px;color:var(--muted);margin-bottom:8px;font-weight:500;}
+input{width:100%;padding:13px 16px;border:1.5px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:16px;color:var(--text);outline:none;background:white;-webkit-appearance:none;}
+input:focus{border-color:var(--accent);}
+.rg{display:flex;gap:8px;flex-wrap:wrap;}
+.ro{flex:1;min-width:calc(50% - 4px);padding:12px 8px;border:1.5px solid var(--border);border-radius:10px;text-align:center;font-size:14px;cursor:pointer;color:var(--muted);background:white;font-family:'DM Sans',sans-serif;}
+.ro.ativo{border-color:var(--accent);background:var(--ice);color:var(--accent);font-weight:600;}
+.btn-sub{width:100%;padding:17px;background:var(--green);color:white;border:none;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:17px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:22px;-webkit-appearance:none;}
+.btn-sub:disabled{opacity:0.5;}
+.sucesso{display:none;background:white;border-radius:16px;padding:32px 24px;border:1px solid var(--border);}
+.sucesso h3{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--navy);margin-bottom:12px;text-align:center;line-height:1.2;}
+.det{background:var(--ice);border-left:4px solid var(--accent);border-radius:8px;padding:14px 16px;margin:16px 0;font-size:15px;color:var(--navy);line-height:1.7;}
+.msg{font-size:14px;color:var(--muted);line-height:1.7;}
+.pc{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:16px;margin-top:16px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.pci{font-size:14px;line-height:1.5;flex:1;min-width:180px;}
+.pci strong{display:block;margin-bottom:4px;font-size:15px;}
+.pci span{font-size:13px;color:var(--muted);}
+.btn-p{padding:10px 18px;background:var(--accent);color:white;border:none;border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;text-decoration:none;display:inline-block;white-space:nowrap;}
+.local-sec{background:white;padding:44px 20px;}
+.local-inner{max-width:560px;margin:0 auto;}
+.local-hdr{text-align:center;margin-bottom:28px;}
+.local-hdr h2{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:400;color:var(--navy);}
+.iline{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;font-size:15px;line-height:1.5;}
+.iline span{color:var(--muted);}
+.map-wrap{border-radius:14px;overflow:hidden;box-shadow:0 4px 24px rgba(15,34,54,0.1);height:220px;margin-top:24px;}
+.map-wrap iframe{width:100%;height:100%;border:none;}
+.btn-waf{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--green);color:white;text-decoration:none;padding:15px;border-radius:100px;font-size:15px;font-weight:600;margin-top:20px;}
+footer{background:var(--navy);color:rgba(255,255,255,0.45);text-align:center;padding:28px 20px;font-size:13px;line-height:1.6;}
+footer strong{color:rgba(255,255,255,0.8);}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.fade-in{animation:fadeIn 0.4s ease;}
+
+.btn-tel{display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;padding:16px;border-radius:50px;font-size:16px;font-weight:700;
+  background:transparent;border:2px solid rgba(255,255,255,0.3);color:white;
+  text-decoration:none;margin-bottom:12px;letter-spacing:0.3px;
+  transition:all 0.2s;}
+.btn-tel:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.6);}
+
+</style>
+</head>
+<body>
+<header>
+  <h1>Dr. Lucas Pereira de Souza<br>Pneumologista<br><span style="font-size:0.85em;font-weight:400;opacity:0.85">(Especialista em pulmão)</span></h1>
+      <p>CRM-PE 9777 · RQE 9868 · Jaboatão — PE</p>
+</header>
+<div class="hero">
+  <div class="logo-wrap"><img src="https://raw.githubusercontent.com/newdrlp/assets/main/logo_circular.png" alt="Dr. Lucas Pereira de Souza - Pneumologista" loading="eager" crossorigin="anonymous"></div>
+  <p class="eyebrow">Jaboatão · Pernambuco</p>
+  <h2>Clínica popular em Jaboatão</h2>
+  <p class="hero-sub">Dr. Lucas Pereira de Souza · Pneumologista</p>
+  <div class="crm"><span>CRM-PE 9777</span><span>·</span><span>RQE 9868</span></div>
+  <div class="btns">
+    <a href="tel:+558137233333" class="btn-tel" onclick="iniciarRastreioLigacao()">📞 (81) 3723-3333</a>
+    <a href="https://api.whatsapp.com/send?phone=558198385415&text=Olá%2C+gostaria+de+agendar+consulta+em+Jaboatão+com+o+Dr.+Lucas+Pereira." class="btn-wa">
+      <svg style="width:22px;height:22px;fill:white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Agendar pelo WhatsApp
+    </a>
+    <a href="#agendar" class="btn-ag">📅 Pré-agendamento online</a>
+  </div>
+  <div class="disp">
+    <div class="disp-label">Próximo atendimento</div>
+    <div class="disp-info"><span id="disp-info-dinamico">Calculando...</span></div>
+    <div class="disp-sub"><span id="disp-sub-dinamico">...</span></div>
+  </div>
+    <div class="sugestao-alt">
+  <span class="alt-label">TAMBÉM DISPONÍVEL</span>
+  <div class="alt-info">
+    <strong id="seg-cidade">Calculando...</strong>
+    <span style="font-size:11px;color:rgba(255,255,255,0.4);margin-left:6px" id="seg-dist"></span>
+    <br>— <span id="seg-nome"></span>
+    <span class="alt-data" id="seg-data"></span>
+  </div>
+  <a class="btn-alt" href="#" id="seg-link">Ver disponibilidade</a>
+</div>
+
+<div class="container" id="agendar">
+  <p class="slabel">Pré-agendamento</p>
+  <h2 class="stitle">Solicite sua consulta</h2>
+  <div class="form-card" id="form-card">
+    <div class="ubox">
+      <div class="ubox-top">Jaboatão — Clínica Jaboatão Centro</div>
+      <div class="ubox-mid">Rua Alberto Barreto, 05, Jaboatão Centro</div>
+      <div class="ubox-bot"><span id="ubox-bot-dinamico">...</span></div>
+    </div>
+    <div class="aviso" id="aviso">⏰ Fora do horário comercial. Seu agendamento será confirmado até o primeiro dia útil.</div>
+    <div class="fg"><label>Nome completo</label><input type="text" id="nome" placeholder="Seu nome completo" autocomplete="name"></div>
+    <div class="fg"><label>WhatsApp (com DDD)</label><input type="tel" id="whatsapp" placeholder="(81) 99999-9999" autocomplete="tel"></div>
+    <div class="fg"><label>Tipo de atendimento</label>
+      <div class="rg">
+        <div class="ro" onclick="selectOpt(this,'tipo')">Primeira consulta</div>
+        <div class="ro" onclick="selectOpt(this,'tipo')">Nova consulta</div>
+        <div class="ro" onclick="selectOpt(this,'tipo')">Retorno</div>
+        <div class="ro" onclick="selectOpt(this,'tipo')">Exame</div>
+      </div>
+    </div>
+    <div class="fg"><label>Período preferido</label>
+      <div class="rg">
+        <div class="ro" onclick="selectOpt(this,'periodo')">Manhã</div>
+        <div class="ro" onclick="selectOpt(this,'periodo')">Tarde</div>
+        <div class="ro" onclick="selectOpt(this,'periodo')">Indiferente</div>
+      </div>
+    </div>
+    <button class="btn-sub" id="btn-sub" onclick="enviar()">
+      <svg style="width:22px;height:22px;fill:white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Registrar meu agendamento
+    </button>
+  </div>
+  <div class="sucesso fade-in" id="sucesso">
+    <div style="text-align:center;font-size:56px;margin-bottom:12px">📅</div>
+    <h3>Agendamento registrado!</h3>
+    <div class="det" id="det"></div>
+    <p class="msg">Seu agendamento foi registrado. Entraremos em contato pelo WhatsApp para confirmar.<br>Se preferir, ligue: <strong>seg–sex, 8h às 18h</strong>.</p>
+    <div id="pp"></div>
+  </div>
+</div>
+<div class="local-sec">
+  <div class="local-inner">
+    <div class="local-hdr"><p class="slabel">Onde encontrar o Dr. Lucas Pereira</p><h2>Clínica Jaboatão Centro</h2></div>
+    <div class="iline">📍 <span>Rua Alberto Barreto, 05, Jaboatão Centro — Jaboatão PE</span></div>
+    <div class="iline">📅 <span>Segunda-feiras · Manhã e tarde · 8h às 17h</span></div>
+        <a href="https://api.whatsapp.com/send?phone=558198385415&text=Olá%2C+gostaria+de+agendar+em+Jaboatão." class="btn-waf">
+      <svg style="width:20px;height:20px;fill:white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Falar pelo WhatsApp
+    </a>
+    <div class="map-wrap"><iframe src="https://maps.google.com/maps?q=-8.11191,-35.01628&z=16&output=embed" allowfullscreen="" loading="lazy"></iframe></div>
+  </div>
+</div>
+<footer>
+  <strong>Dr. Lucas Pereira de Souza</strong> · Pneumologista · CRM-PE 9777 · RQE 9868<br>
+  Clínica Jaboatão Centro · Rua Alberto Barreto, 05, Jaboatão Centro — Jaboatão PE
+</footer>
+<script>var CLINICA_ID="jaboatao";
+var SCRIPT_URL="https://script.google.com/macros/s/AKfycbw6ABM1F6UmxGGRjyHDCCN5jPlWgsFHZK3IhhBk3B-ymQLQOUQV6cPeyKf6P4VI9Om9/exec",CIDADE="Jaboatão",CLINICA="Clínica Jaboatão Centro";var FREQUENCIA="quinzenal",DIA_SEMANA=1,DATA_BASE="2026-05-18",TURNO="ambos",HORARIO="8h às 17h";
+function calcProximaData(){
+  var hoje=new Date();hoje.setHours(0,0,0,0);
+  if(FREQUENCIA==="semanal"){
+    var d=new Date(hoje);
+    var diff=(DIA_SEMANA-d.getDay()+7)%7;
+    d.setDate(d.getDate()+(diff===0?7:diff));
+    return d;
+  }
+  if(FREQUENCIA==="quinzenal"&&DATA_BASE){
+    var base=new Date(DATA_BASE+"T12:00:00");
+    var d=new Date(base);
+    while(d<=hoje)d.setDate(d.getDate()+14);
+    return d;
+  }
+  return new Date();
+}
+var _prox=calcProximaData();
+var PROX_DATA=_prox.toISOString().split("T")[0];
+
+var TURNO_NOME={"manha":"Manhã","tarde":"Tarde","ambos":"Manhã e tarde"};
+var estado={tipo:null,periodo:null};
+function selectOpt(el,campo){el.parentElement.querySelectorAll('.ro').forEach(function(o){o.classList.remove('ativo');});el.classList.add('ativo');estado[campo]=el.textContent.trim();}
+function verificarHorario(){var h=new Date().getHours(),d=new Date().getDay();var av=document.getElementById('aviso');if(av)av.style.display=(d===0||d===6||h<8||h>=18)?'block':'none';}
+function enviar(){
+  var nome=document.getElementById('nome').value.trim(),wpp=document.getElementById('whatsapp').value.trim();
+  if(!nome){alert("Informe seu nome.");return;}if(!wpp){alert("Informe seu WhatsApp.");return;}
+  if(!estado.tipo){alert("Selecione o tipo de atendimento.");return;}if(!estado.periodo){alert("Selecione o período.");return;}
+  var btn=document.getElementById('btn-sub');btn.disabled=true;btn.textContent="Registrando...";
+  var d=new Date(PROX_DATA+'T12:00:00'),dl=d.toLocaleDateString('pt-BR',{weekday:'long',day:'2-digit',month:'2-digit'});
+  fetch(SCRIPT_URL,{method:"POST",body:JSON.stringify({nome:nome,whatsapp:wpp,cidade:CIDADE+" — "+CLINICA,tipo:estado.tipo,periodo:estado.periodo})})
+  .then(function(){
+    document.getElementById('form-card').style.display='none';
+    document.getElementById('det').innerHTML='<strong>'+nome+'</strong>, agendamento para <strong>'+CIDADE+'</strong> registrado.<br>Próximo atendimento: <strong>'+dl+'</strong><br>'+TURNO_NOME[TURNO]+' · '+HORARIO+'<br>WhatsApp: <strong>'+wpp+'</strong>';
+    var pp=document.getElementById('pp');
+    if(estado.tipo==='Primeira consulta'||estado.tipo==='Nova consulta'){pp.innerHTML='<div class="pc"><div class="pci"><strong>Preencha sua ficha de pré-atendimento</strong><span style="font-size:15px;display:block;margin-top:6px" style="font-size:15px;display:block;margin-top:6px">Agora, registre suas queixas e informações adicionais de saúde, diretamente para o Dr. Lucas Pereira estar ciente ao iniciar seu atendimento.</span></div><a class="btn-p" href="https://jaboatao.pneumologia-pe.com.br/pre-atendimento" id="btn-ficha" target="_blank">Preencher ficha</a></div>';setTimeout(function(){var el=document.getElementById("btn-ficha");if(el)el.scrollIntoView({behavior:"smooth",block:"center"});},300);}
+    else if(estado.tipo==='Exame')pp.innerHTML='<div class="pc"><div class="pci"><strong>Preparo para Espirometria</strong><span>Saiba quais medicamentos suspender e como se preparar.</span></div><a class="btn-p" href="#" target="_blank">Ver orientações</a></div>';
+    document.getElementById('sucesso').style.display='block';window.scrollTo({top:0,behavior:'smooth'});
+  }).catch(function(){btn.disabled=false;btn.textContent='Registrar meu agendamento';alert("Erro ao enviar. Tente novamente.");});
+}
+// ── CÁLCULO DINÂMICO DE DATA ──────────────────────────────────────
+(function() {
+  var FREQ = "quinzenal";
+  var DIA_SEMANA = 1; // 0=dom,1=seg,2=ter,3=qua,4=qui,5=sex
+  var BASE = "2026-05-18"; // data base para quinzenal (YYYY-MM-DD)
+  var TURNO_CFG = "ambos";
+  var HORARIO_CFG = "8h às 17h";
+  var TURNO_NOME = {manha:"Manhã",tarde:"Tarde",ambos:"Manhã e tarde"};
+
+  function proximaData() {
+    var hoje = new Date(); hoje.setHours(0,0,0,0);
+    if (FREQ === 'semanal') {
+      var d = new Date(hoje);
+      var diff = (DIA_SEMANA - d.getDay() + 7) % 7;
+      d.setDate(d.getDate() + (diff === 0 ? 7 : diff));
+      return d;
+    }
+    if (FREQ === 'quinzenal' && BASE) {
+      var partes = BASE.split('-');
+      var d = new Date(parseInt(partes[0]), parseInt(partes[1])-1, parseInt(partes[2]));
+      while (d <= hoje) d.setDate(d.getDate() + 14);
+      return d;
+    }
+    return null;
+  }
+
+  var prox = proximaData();
+  if (!prox) return;
+
+  // Atualiza PROX_DATA para uso na função enviar()
+  PROX_DATA = prox.toISOString().split('T')[0];
+  TURNO = TURNO_CFG;
+  HORARIO = HORARIO_CFG;
+
+  var opts = {weekday:'long', day:'2-digit', month:'2-digit'};
+  var dataFmt = prox.toLocaleDateString('pt-BR', opts);
+  // Capitaliza
+  dataFmt = dataFmt.charAt(0).toUpperCase() + dataFmt.slice(1);
+
+  // Atualiza bloco hero
+  var dispInfo = document.getElementById('disp-info-dinamico');
+  var dispSub  = document.getElementById('disp-sub-dinamico');
+  var uboxBot  = document.getElementById('ubox-bot-dinamico');
+  if (dispInfo) dispInfo.textContent = dataFmt;
+  if (dispSub)  dispSub.textContent  = TURNO_NOME[TURNO_CFG] + ' · ' + HORARIO_CFG;
+  if (uboxBot)  uboxBot.textContent  = '📅 ' + dataFmt + ' · ' + TURNO_NOME[TURNO_CFG] + ' · ' + HORARIO_CFG;
+})();
+verificarHorario();</script>
+
+<script>
+(function(){
+  var el=document.getElementById('prox-data-txt');
+  var tel=document.getElementById('prox-turno-txt');
+  var TURNO_NOME={"manha":"Manhã","tarde":"Tarde","ambos":"Manhã e tarde"};
+  if(el){
+    var d=calcProximaData();
+    el.textContent=d.toLocaleDateString('pt-BR',{weekday:'long',day:'2-digit',month:'2-digit'});
+  }
+  if(tel){
+    tel.textContent=TURNO_NOME[TURNO]+" · "+HORARIO;
+  }
+})();
+</script>
+
+<script>
+(function(){
+  // Calcula próxima terça de Caruaru
+  var hoje = new Date(); hoje.setHours(0,0,0,0);
+  var d = new Date(hoje);
+  var diff = (2 - d.getDay() + 7) % 7;
+  d.setDate(d.getDate() + (diff === 0 ? 7 : diff));
+  var dl = d.toLocaleDateString('pt-BR', {weekday:'long', day:'2-digit', month:'2-digit'});
+  var el = document.getElementById('caruaru-alt-data');
+  if(el) el.textContent = dl + ' · Manhã e tarde · 8h às 18h';
+})();
+</script>
+
+<script>
+var CLINICAS_COORDS = {"caruaru": {"lat": -8.2832, "lon": -35.9753, "nome": "Caruaru Clinical Center", "cidade": "Caruaru", "freq": "semanal", "dia": 2, "base": "", "turno": "ambos", "horario": "8h \u00e0s 18h"}, "limoeiro": {"lat": -7.8731, "lon": -35.45, "nome": "Cl\u00ednica Magalh\u00e3es Pedrosa", "cidade": "Limoeiro", "freq": "quinzenal", "dia": 1, "base": "2026-05-11", "turno": "manha", "horario": "8h \u00e0s 12h"}, "jaboatao": {"lat": -8.11191, "lon": -35.01628, "nome": "Clinical+Sa\u00fade", "cidade": "Jaboat\u00e3o", "freq": "quinzenal", "dia": 1, "base": "2026-05-18", "turno": "ambos", "horario": "8h \u00e0s 17h"}, "carpina": {"lat": -7.8452, "lon": -35.2531, "nome": "Cl\u00ednica Carpina", "cidade": "Carpina", "freq": "quinzenal", "dia": 1, "base": "2026-05-11", "turno": "tarde", "horario": "13h \u00e0s 17h"}, "palmares": {"lat": -8.6855, "lon": -35.5883, "nome": "Cl\u00ednica Santa Joana", "cidade": "Palmares", "freq": "semanal", "dia": 5, "base": "", "turno": "ambos", "horario": "8h \u00e0s 17h"}, "gravata": {"lat": -8.2036, "lon": -35.5611, "nome": "Gravat\u00e1 Clinical Center", "cidade": "Gravat\u00e1", "freq": "quinzenal", "dia": 3, "base": "2026-05-13", "turno": "manha", "horario": "8h \u00e0s 12h"}};
+var CLINICAS_LINKS  = {"caruaru": "https://caruaru.pneumologia-pe.com.br", "limoeiro": "https://limoeiro.pneumologia-pe.com.br", "jaboatao": "https://jaboatao.pneumologia-pe.com.br", "carpina": "https://carpina.pneumologia-pe.com.br", "palmares": "https://palmares.pneumologia-pe.com.br", "gravata": "https://gravata.pneumologia-pe.com.br"};
+var TURNO_NOME = {manha:"Manhã", tarde:"Tarde", ambos:"Manhã e tarde"};
+
+function calcProxDataC(c) {
+  var hoje = new Date(); hoje.setHours(0,0,0,0);
+  var d;
+  if (c.freq === "semanal") {
+    d = new Date(hoje);
+    var diff = (c.dia - d.getDay() + 7) % 7;
+    d.setDate(d.getDate() + (diff === 0 ? 7 : diff));
+  } else {
+    d = new Date(c.base + "T12:00:00");
+    while (d <= hoje) d.setDate(d.getDate() + 14);
+  }
+  return d;
+}
+
+function distKm(la1,lo1,la2,lo2) {
+  var R=6371, dL=(la2-la1)*Math.PI/180, dO=(lo2-lo1)*Math.PI/180;
+  var a=Math.sin(dL/2)*Math.sin(dL/2)+Math.cos(la1*Math.PI/180)*Math.cos(la2*Math.PI/180)*Math.sin(dO/2)*Math.sin(dO/2);
+  return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
+}
+
+function atualizarSegundaOpcao(userLat, userLon) {
+  var lista = Object.keys(CLINICAS_COORDS)
+    .filter(function(k){ return k !== CLINICA_ID; })
+    .map(function(k){
+      var c = CLINICAS_COORDS[k];
+      return {id:k, c:c, dist:distKm(userLat,userLon,c.lat,c.lon)};
+    })
+    .sort(function(a,b){ return a.dist - b.dist; });
+
+  if (!lista.length) return;
+  var seg = lista[0];
+  var c   = seg.c;
+  var prox = calcProxDataC(c);
+  var dl   = prox.toLocaleDateString("pt-BR",{weekday:"long",day:"2-digit",month:"2-digit"});
+
+  var eNome = document.getElementById("seg-nome");
+  var eCid  = document.getElementById("seg-cidade");
+  var eDat  = document.getElementById("seg-data");
+  var eDist = document.getElementById("seg-dist");
+  var eLink = document.getElementById("seg-link");
+
+  if (eNome) eNome.textContent = c.nome;
+  if (eCid)  eCid.textContent  = c.cidade;
+  if (eDat)  eDat.textContent  = dl + " · " + TURNO_NOME[c.turno] + " · " + c.horario;
+  if (eDist && seg.dist < 500) eDist.textContent = Math.round(seg.dist) + " km de você";
+  if (eLink && CLINICAS_LINKS[seg.id]) eLink.href = CLINICAS_LINKS[seg.id];
+}
+
+(function iniciar() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      function(p){ atualizarSegundaOpcao(p.coords.latitude, p.coords.longitude); },
+      function(){
+        var c = CLINICAS_COORDS[CLINICA_ID];
+        if (c) atualizarSegundaOpcao(c.lat, c.lon);
+      }
+    );
+  } else {
+    var c = CLINICAS_COORDS[CLINICA_ID];
+    if (c) atualizarSegundaOpcao(c.lat, c.lon);
+  }
+})();
+</script>
+
+
+<script>
+function iniciarRastreioLigacao() {
+  var inicio = Date.now();
+  // Registra clique imediato como evento de interesse
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'click_telefone', {event_category: 'contato', event_label: window.location.hostname});
+  }
+  // Após 90s verifica se ainda está na página (proxy de conversão)
+  setTimeout(function() {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'conversion_ligacao_90s', {
+        event_category: 'conversao',
+        event_label: window.location.hostname,
+        value: 1
+      });
+    }
+  }, 90000);
+}
+</script>
+
+
+<script>
+// Atualiza link da ficha com dados do paciente quando disponíveis
+function atualizarLinkFicha() {
+  var btn = document.getElementById('btn-ficha');
+  if (!btn) return;
+  var nome = document.getElementById('nome-input') ? document.getElementById('nome-input').value : '';
+  var wpp  = document.getElementById('wpp-input')  ? document.getElementById('wpp-input').value  : '';
+  var url = 'https://jaboatao.pneumologia-pe.com.br/pre-atendimento';
+  if (nome) url += '&nome=' + encodeURIComponent(nome);
+  if (wpp)  url += '&whatsapp=' + encodeURIComponent(wpp);
+  btn.href = url;
+}
+// Observa campos do formulário de agendamento
+document.addEventListener('input', function(e) {
+  if (e.target && (e.target.id === 'nome-input' || e.target.id === 'wpp-input')) {
+    atualizarLinkFicha();
+  }
+});
+</script>
+
+</body>
+</html>

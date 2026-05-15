@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Ficha de pré-atendimento | Jaboatão</title>
+  <link rel="canonical" href="https://newdrlp.github.io/pre-atendimento/?clinica=jaboatao">
+  <style>
+    body{font-family:Arial,sans-serif;margin:0;min-height:100vh;display:grid;place-items:center;background:#f5f8fa;color:#1a2e3d;text-align:center;padding:24px}
+    a{color:#2e7da6;font-weight:700}
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Redirecionando para a ficha de pré-atendimento...</h1>
+    <p>Se não abrir automaticamente, <a id="link" href="https://newdrlp.github.io/pre-atendimento/?clinica=jaboatao">clique aqui</a>.</p>
+  </main>
+  <script>
+    var destino = 'https://newdrlp.github.io/pre-atendimento/';
+    var params = new URLSearchParams(window.location.search);
+    params.set('clinica', params.get('clinica') || 'jaboatao');
+    var url = destino + '?' + params.toString();
+    document.getElementById('link').href = url;
+    window.location.replace(url);
+  </script>
+</body>
+</html>
