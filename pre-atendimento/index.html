@@ -1,28 +1,1048 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex,nofollow">
-  <title>Ficha de pré-atendimento | Jaboatão</title>
-  <link rel="canonical" href="https://newdrlp.github.io/pre-atendimento/?clinica=jaboatao">
-  <style>
-    body{font-family:Arial,sans-serif;margin:0;min-height:100vh;display:grid;place-items:center;background:#f5f8fa;color:#1a2e3d;text-align:center;padding:24px}
-    a{color:#2e7da6;font-weight:700}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ficha de Pré-Atendimento · Dr. Lucas Pereira de Souza</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --verde:        #1f6e4a;
+  --verde-escuro: #133f2c;
+  --verde-muted:  #2e8f64;
+  --verde-bg:     #eef7f2;
+  --verde-border: #c4ddd1;
+  --cinza-bg:     #f5f6f4;
+  --cinza-card:   #ffffff;
+  --cinza-borda:  #e2e6e1;
+  --texto:        #1a2620;
+  --texto-2:      #4a6055;
+  --texto-3:      #7a948a;
+  --erro:         #b83232;
+  --radius:       10px;
+  --radius-sm:    7px;
+  --shadow-card:  0 1px 4px rgba(0,0,0,0.06), 0 0 0 1px var(--cinza-borda);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  background: var(--cinza-bg);
+  color: var(--texto);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HEADER ─────────────────────────────────────────── */
+.header {
+  background: var(--verde-escuro);
+  padding: 32px 24px 28px;
+  position: relative;
+  overflow: hidden;
+}
+.header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 95% 10%, rgba(46,143,100,.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 5% 90%,  rgba(255,255,255,.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Linha decorativa verde */
+.header-accent {
+  width: 36px;
+  height: 3px;
+  background: #5ec493;
+  border-radius: 2px;
+  margin-bottom: 14px;
+}
+
+/* Tag de clínica */
+.clinica-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 20px;
+  padding: 4px 11px 4px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,.82);
+  margin-bottom: 14px;
+  letter-spacing: .2px;
+}
+.clinica-tag svg {
+  flex-shrink: 0;
+  opacity: .7;
+}
+
+.header h1 {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 8px;
+  position: relative; z-index: 1;
+}
+.header-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,.55);
+  line-height: 1.55;
+  position: relative; z-index: 1;
+  max-width: 340px;
+}
+
+/* ── BARRA DE PROGRESSO ──────────────────────────────── */
+.prog-wrap {
+  height: 2px;
+  background: rgba(0,0,0,.06);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.prog-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--verde-muted), #5ec493);
+  width: 0%;
+  transition: width .35s ease;
+}
+
+/* ── LAYOUT ──────────────────────────────────────────── */
+.wrap {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 28px 18px 64px;
+}
+
+/* ── SEÇÃO ───────────────────────────────────────────── */
+.section { margin-bottom: 22px; }
+
+.section-title {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--verde);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--cinza-borda);
+}
+
+/* ── CARD ────────────────────────────────────────────── */
+.card {
+  background: var(--cinza-card);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* ── CAMPO PREENCHIDO (readonly via URL) ─────────────── */
+.field-pre {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--verde-bg);
+  border: 1px solid var(--verde-border);
+  border-radius: var(--radius-sm);
+  padding: 10px 13px;
+}
+.field-pre-ico {
+  width: 32px; height: 32px;
+  background: #fff;
+  border: 1px solid var(--verde-border);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 14px;
+}
+.field-pre-body { flex: 1; min-width: 0; }
+.field-pre-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--verde);
+  margin-bottom: 1px;
+}
+.field-pre-val {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--verde-escuro);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.field-pre-lock {
+  font-size: 11px;
+  color: var(--verde-muted);
+  opacity: .5;
+}
+
+/* ── INPUT / TEXTAREA ────────────────────────────────── */
+.field { display: flex; flex-direction: column; gap: 5px; }
+
+.field > label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--texto-2);
+}
+.field > label .req { color: var(--verde-muted); }
+.field .hint {
+  font-size: 12px;
+  color: var(--texto-3);
+  margin-top: -2px;
+  line-height: 1.45;
+}
+
+.field input[type=text],
+.field input[type=tel],
+.field input[type=date],
+.field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid var(--cinza-borda);
+  border-radius: var(--radius-sm);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 14px;
+  color: var(--texto);
+  background: #fff;
+  outline: none;
+  transition: border-color .18s, box-shadow .18s;
+  -webkit-appearance: none;
+}
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--verde-muted);
+  box-shadow: 0 0 0 3px rgba(46,143,100,.1);
+}
+.field input.inv, .field textarea.inv {
+  border-color: var(--erro);
+}
+.field textarea {
+  resize: none;
+  line-height: 1.55;
+}
+.err-msg {
+  font-size: 12px;
+  color: var(--erro);
+  display: none;
+}
+.err-msg.on { display: block; }
+
+/* grid 2 colunas */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+/* ── CHECKBOXES ──────────────────────────────────────── */
+.cb-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+.cb-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 9px 11px;
+  border: 1.5px solid var(--cinza-borda);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+  user-select: none;
+}
+.cb-item:hover { border-color: var(--verde-muted); background: var(--verde-bg); }
+.cb-item input[type=checkbox] {
+  width: 15px; height: 15px;
+  flex-shrink: 0;
+  accent-color: var(--verde);
+  cursor: pointer;
+  margin-top: 1px;
+}
+.cb-item span { font-size: 13px; color: var(--texto); line-height: 1.35; }
+.cb-item:has(input:checked) { border-color: var(--verde); background: var(--verde-bg); }
+
+#outros-wrap { display: none; margin-top: 8px; }
+#outros-wrap.on { display: flex; flex-direction: column; gap: 5px; }
+
+/* ── RADIO ───────────────────────────────────────────── */
+.radio-stack { display: flex; flex-direction: column; gap: 7px; margin-top: 4px; }
+.rb-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 13px;
+  border: 1.5px solid var(--cinza-borda);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+  user-select: none;
+}
+.rb-item:hover { border-color: var(--verde-muted); background: var(--verde-bg); }
+.rb-item input[type=radio] {
+  width: 15px; height: 15px;
+  accent-color: var(--verde);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.rb-item span { font-size: 13px; color: var(--texto); }
+.rb-item:has(input:checked) { border-color: var(--verde); background: var(--verde-bg); }
+
+/* ── BOTÃO ───────────────────────────────────────────── */
+.btn-submit {
+  width: 100%;
+  padding: 15px 20px;
+  background: var(--verde);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: .3px;
+  transition: background .18s, transform .1s;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin-top: 6px;
+}
+.btn-submit:hover { background: var(--verde-escuro); }
+.btn-submit:active { transform: scale(.99); }
+.btn-submit:disabled { background: var(--cinza-borda); color: var(--texto-3); cursor: not-allowed; }
+.spin {
+  width: 17px; height: 17px;
+  border: 2px solid rgba(255,255,255,.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin .65s linear infinite;
+  display: none;
+}
+.btn-submit.loading .spin { display: block; }
+.btn-submit.loading .btn-txt { display: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── LGPD ────────────────────────────────────────────── */
+.lgpd-note {
+  font-size: 11.5px;
+  color: var(--texto-3);
+  text-align: center;
+  line-height: 1.6;
+  margin-top: 14px;
+  padding: 0 8px;
+}
+
+/* ── RODAPÉ CFM — obrigatório pela Res. 2.336/2023 ──── */
+.cfm-footer {
+  margin-top: 28px;
+  padding: 14px 16px;
+  background: var(--verde-bg);
+  border: 1px solid var(--verde-border);
+  border-radius: var(--radius);
+  text-align: center;
+}
+/* 
+  CFM 2.336/2023 art.4: nome, CRM com palavra MÉDICO,
+  especialidade + RQE são obrigatórios.
+  Hierarquia: nome em destaque, demais em tamanho menor mas legível.
+*/
+.cfm-nome {
+  font-family: 'Lora', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--verde-escuro);
+  margin-bottom: 3px;
+}
+.cfm-crm {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--verde);
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.cfm-esp {
+  font-size: 12px;
+  color: var(--texto-2);
+  margin-bottom: 2px;
+}
+.cfm-rqe {
+  font-size: 11px;
+  color: var(--texto-3);
+}
+
+/* ── SUCESSO ─────────────────────────────────────────── */
+.sucesso {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 64px 32px;
+  min-height: 65vh;
+}
+.sucesso.on { display: flex; }
+.suc-ico {
+  width: 68px; height: 68px;
+  background: var(--verde-bg);
+  border: 2px solid var(--verde-border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+  margin-bottom: 22px;
+}
+.sucesso h2 {
+  font-family: 'Lora', serif;
+  font-size: 22px;
+  color: var(--verde-escuro);
+  margin-bottom: 10px;
+}
+.sucesso p {
+  font-size: 14px;
+  color: var(--texto-2);
+  line-height: 1.7;
+  max-width: 300px;
+}
+.suc-nome { font-weight: 600; color: var(--verde); }
+
+/* ── ANIMAÇÃO DE ENTRADA ─────────────────────────────── */
+.section {
+  animation: fadeUp .45s ease both;
+}
+.section:nth-child(1) { animation-delay: .05s; }
+.section:nth-child(2) { animation-delay: .10s; }
+.section:nth-child(3) { animation-delay: .15s; }
+.section:nth-child(4) { animation-delay: .20s; }
+.section:nth-child(5) { animation-delay: .25s; }
+.section:nth-child(6) { animation-delay: .30s; }
+.section:nth-child(7) { animation-delay: .35s; }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVO ──────────────────────────────────────── */
+@media (max-width: 390px) {
+  .cb-grid { grid-template-columns: 1fr; }
+  .two     { grid-template-columns: 1fr; }
+  .header h1 { font-size: 21px; }
+}
+
+.voz-wrap{position:relative;}
+.btn-voz{
+  display:none; /* mostrado via JS apenas se suportado */
+  align-items:center;gap:6px;
+  padding:8px 14px;border-radius:8px;
+  background:var(--verde-bg);border:1.5px solid var(--verde-border);
+  color:var(--verde);font-family:'Source Sans 3',sans-serif;
+  font-size:13px;font-weight:600;cursor:pointer;
+  margin-top:6px;transition:all 0.2s;
+}
+.btn-voz:hover{background:var(--verde-border);}
+.btn-voz.gravando{
+  background:#fee2e2;border-color:#fca5a5;color:#dc2626;
+  animation:pulsar 1s ease-in-out infinite;
+}
+@keyframes pulsar{0%,100%{opacity:1}50%{opacity:0.6}}
+.voz-status{
+  font-size:11px;color:var(--texto-3);margin-top:4px;
+  min-height:16px;display:none;
+}
+.voz-status.visivel{display:block;}
+
+</style>
 </head>
 <body>
-  <main>
-    <h1>Redirecionando para a ficha de pré-atendimento...</h1>
-    <p>Se não abrir automaticamente, <a id="link" href="https://newdrlp.github.io/pre-atendimento/?clinica=jaboatao">clique aqui</a>.</p>
-  </main>
-  <script>
-    var destino = 'https://newdrlp.github.io/pre-atendimento/';
-    var params = new URLSearchParams(window.location.search);
-    params.set('clinica', params.get('clinica') || 'jaboatao');
-    var url = destino + '?' + params.toString();
-    document.getElementById('link').href = url;
-    window.location.replace(url);
-  </script>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-accent"></div>
+  <div class="clinica-tag" id="badge-clinica">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <span id="badge-txt">Carregando…</span>
+  </div>
+  <h1>Ficha de<br>Pré-Atendimento</h1>
+  <p class="header-sub" style="font-size:14px;color:rgba(255,255,255,.75)">Estas informações chegam diretamente ao Dr. Lucas antes da sua consulta.</p>
+</header>
+
+<!-- PROGRESSO -->
+<div class="prog-wrap"><div class="prog-fill" id="prog"></div></div>
+
+<!-- FORMULÁRIO -->
+<div class="wrap" id="form-wrap">
+<form id="form" novalidate>
+
+  <!-- 1. SEUS DADOS -->
+  <div class="section">
+    <div class="section-title">Seus dados</div>
+    <div class="card">
+
+      <!-- Nome — readonly se veio por URL -->
+      <div class="field-pre" id="nome-pre" style="display:none">
+        <div class="field-pre-ico">👤</div>
+        <div class="field-pre-body">
+          <div class="field-pre-label">Nome</div>
+          <div class="field-pre-val" id="nome-pre-val"></div>
+        </div>
+        <span class="field-pre-lock" title="Preenchido automaticamente">🔒</span>
+      </div>
+      <div class="field" id="nome-fld">
+        <label for="nome">Nome completo <span class="req">*</span></label>
+        <input type="text" id="nome" name="nome" autocomplete="name" placeholder="Seu nome completo">
+        <span class="err-msg" id="e-nome">Informe seu nome completo.</span>
+      </div>
+
+      <!-- WhatsApp — readonly se veio por URL -->
+      <div class="field-pre" id="wa-pre" style="display:none">
+        <div class="field-pre-ico">📱</div>
+        <div class="field-pre-body">
+          <div class="field-pre-label">WhatsApp</div>
+          <div class="field-pre-val" id="wa-pre-val"></div>
+        </div>
+        <span class="field-pre-lock" title="Preenchido automaticamente">🔒</span>
+      </div>
+      <div class="field" id="wa-fld">
+        <label for="wa">WhatsApp (com DDD) <span class="req">*</span></label>
+        <input type="tel" id="wa" name="whatsapp" autocomplete="tel" placeholder="(81) 99999-9999">
+        <span class="err-msg" id="e-wa">Informe seu WhatsApp.</span>
+      </div>
+
+
+      <div class="field" id="email-fld">
+        <label for="email">E-mail <span style="font-size:11px;color:var(--texto-3)">(para envio de documentos após a consulta)</span></label>
+        <input type="email" id="email" name="email" autocomplete="email" placeholder="seu@email.com">
+      </div>
+
+      <!-- Clínica — sempre readonly -->
+      <div class="field-pre" id="clinica-pre">
+        <div class="field-pre-ico">🏥</div>
+        <div class="field-pre-body">
+          <div class="field-pre-label">Clínica</div>
+          <div class="field-pre-val" id="clinica-pre-val">—</div>
+        </div>
+      </div>
+      <input type="hidden" id="clinica" name="clinica">
+
+      <!-- Data nasc + cidade -->
+      <div class="two">
+        <div class="field">
+          <label for="nasc">Data de nascimento <span class="req">*</span></label>
+          <input type="text" id="nasc" name="data_nascimento" placeholder="DD/MM/AAAA" maxlength="10" inputmode="numeric">
+          <span class="err-msg" id="e-nasc">Informe sua data de nascimento.</span>
+        </div>
+        <div class="field">
+          <label for="cidade">Cidade</label>
+          <input type="text" id="cidade" name="cidade" placeholder="Ex: Limoeiro">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 2. MOTIVO DA CONSULTA -->
+  <div class="section">
+    <div class="section-title">Motivo da consulta</div>
+    <div class="card">
+      <div class="field">
+        <label for="qp">Qual é sua queixa principal? <span class="req">*</span></label>
+        <p class="hint">Descreva o sintoma mais importante e há quanto tempo está presente.</p>
+        <textarea id="qp" name="queixa_principal" rows="5" style="resize:vertical" placeholder="Ex: Tosse seca há 3 semanas, pior à noite…"></textarea>
+        <span class="err-msg" id="e-qp">Descreva o motivo da consulta.</span>
+
+          <div class="voz-wrap">
+            <button type="button" class="btn-voz" id="btn-voz-qp" onclick="toggleVoz('qp')">
+              🎙 Falar minha queixa
+            </button>
+            <div class="voz-status" id="status-voz-qp">Ouvindo... fale sua queixa principal</div>
+          </div>
+      </div>
+      <div class="field">
+        <label for="qs">Tem outra queixa ou sintoma que gostaria de relatar?</label>
+        <textarea id="qs" name="queixa_secundaria" rows="3" style="resize:vertical" placeholder="Opcional…"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. HISTÓRICO DE SAÚDE -->
+  <div class="section">
+    <div class="section-title">Histórico de saúde</div>
+    <div class="card">
+      <div class="field">
+        <label>Problemas de saúde que tem ou já teve:</label>
+        <div class="cb-grid" style="margin-top:6px">
+          <label class="cb-item"><input type="checkbox" name="antecedentes" value="Asma"><span>Asma</span></label>
+          <label class="cb-item"><input type="checkbox" name="antecedentes" value="Rinite alérgica ou sinusite"><span>Rinite / Sinusite</span></label>
+          <label class="cb-item"><input type="checkbox" name="antecedentes" value="Bronquite ou enfisema (DPOC)"><span>Bronquite / DPOC</span></label>
+          <label class="cb-item"><input type="checkbox" name="antecedentes" value="Urticária ou dermatite atópica"><span>Urticária / Dermatite</span></label>
+          <label class="cb-item"><input type="checkbox" name="antecedentes" value="Refluxo ou gastrite"><span>Refluxo / Gastrite</span></label>
+          <label class="cb-item"><input type="checkbox" name="antecedentes" value="Hipertensão arterial"><span>Pressão alta</span></label>
+          <label class="cb-item"><input type="checkbox" name="antecedentes" value="Diabetes"><span>Diabetes</span></label>
+          <label class="cb-item"><input type="checkbox" name="antecedentes" value="Doença cardíaca"><span>Doença cardíaca</span></label>
+          <label class="cb-item"><input type="checkbox" name="antecedentes" value="Problema na tireoide"><span>Tireoide</span></label>
+          <label class="cb-item"><input type="checkbox" name="antecedentes" value="Glaucoma"><span>Glaucoma</span></label>
+          <label class="cb-item" id="outros-lbl">
+            <input type="checkbox" id="cb-outros" name="antecedentes" value="Outros">
+            <span>Outros</span>
+          </label>
+        </div>
+        <div id="outros-wrap">
+          <label class="field" style="flex-direction:column;gap:4px">
+            <span style="font-size:12px;color:var(--texto-2)">Descreva:</span>
+            <textarea id="outros-txt" name="outros_antecedentes" rows="2" placeholder="Outros problemas de saúde…"></textarea>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. TABAGISMO -->
+  <div class="section">
+    <div class="section-title">Exposições ambientais</div>
+    <div class="card">
+      <div class="field">
+        <label>Já fumou ou fuma atualmente?</label>
+        <div class="radio-stack">
+          <label class="rb-item"><input type="radio" name="tabagismo" value="Nunca fumei"><span>Nunca fumei</span></label>
+          <label class="rb-item"><input type="radio" name="tabagismo" value="Tabagismo passivo (convivo com fumante)"><span>Convivo com fumante (tabagismo passivo)</span></label>
+          <label class="rb-item"><input type="radio" name="tabagismo" value="Ex-tabagista"><span>Sou ex-tabagista</span></label>
+          <label class="rb-item"><input type="radio" name="tabagismo" value="Fumante atual"><span>Sou fumante atual</span></label>
+            <label class="rb-item"><input type="radio" name="tabagismo" value="Exposição à fumaça de lenha ou poluentes no trabalho"><span>Exposição à fumaça de lenha ou poluentes no trabalho</span></label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. MEDICAÇÕES E ALERGIAS -->
+  <div class="section">
+    <div class="section-title">Medicações e alergias</div>
+    <div class="card">
+      <div class="field">
+        <label for="med">Quais medicamentos usa atualmente?</label>
+        <textarea id="med" name="medicacoes" rows="2" placeholder="Ex: Losartana 50 mg, Metformina 500 mg… ou "Nenhum""></textarea>
+      </div>
+      <div class="field">
+        <label for="alg">Tem alergia a algum medicamento ou substância?</label>
+        <textarea id="alg" name="alergias" rows="2" placeholder="Ex: Dipirona, AAS, látex… ou "Sem alergias conhecidas""></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. AUTORIZAÇÃO -->
+  <div class="section">
+    <div class="section-title">Autorização</div>
+    <div class="card">
+      <div class="field">
+        <label>Autoriza o uso destas informações para agilizar sua consulta com o Dr. Lucas Pereira de Souza? <span class="req">*</span></label>
+        <div class="radio-stack" style="margin-top:4px">
+          <label class="rb-item"><input type="radio" name="autorizacao" value="Sim, autorizo"><span>Sim, autorizo</span></label>
+          <label class="rb-item"><input type="radio" name="autorizacao" value="Não autorizo"><span>Não autorizo</span></label>
+        </div>
+        <span class="err-msg" id="e-aut">Selecione uma opção.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTÃO -->
+  <button type="submit" class="btn-submit" id="btn">
+    <div class="spin"></div>
+    <span class="btn-txt">Enviar ficha de pré-atendimento</span>
+  </button>
+
+  <p class="lgpd-note">
+    Suas informações são sigilosas e utilizadas exclusivamente para fins clínicos,<br>
+    conforme a LGPD — Lei 13.709/2018.
+  </p>
+
+  <!-- RODAPÉ CFM obrigatório — Res. 2.336/2023 art.4 -->
+  <div class="cfm-footer">
+    <div class="cfm-nome">Dr. Lucas Pereira de Souza</div>
+    <div class="cfm-crm">CRM-PE 9777 · MÉDICO</div>
+    <div class="cfm-esp">Pneumologia</div>
+    <div class="cfm-rqe">RQE 9868</div>
+  </div>
+
+</form>
+</div>
+
+<!-- TELA DE SUCESSO -->
+<div class="wrap sucesso" id="tela-ok">
+  <div class="suc-ico">✅</div>
+  <h2>Ficha enviada!</h2>
+  <p>Obrigado, <span class="suc-nome" id="ok-nome"></span>. Sua ficha chegou ao consultório. O Dr. Lucas estará preparado para sua consulta.</p>
+</div>
+
+<script>
+// ── MAPA DE CLÍNICAS ─────────────────────────────────────────────────
+const CLINICAS = {
+  limoeiro:  {
+    label:    'Clínica Radiológica Magalhães Pedrosa — Limoeiro PE',
+    endereco: 'Rua Padre Nicolau Pimentel, 75 — José Fernandes Salsa, Limoeiro PE',
+    cidade:   'Limoeiro',
+  },
+  caruaru:   {
+    label:    'Caruaru Clinical Center — Caruaru PE',
+    endereco: 'Rua Raul Paranhos, 139 — Maurício de Nassau, Caruaru PE · CEP 55014-220',
+    cidade:   'Caruaru',
+  },
+  jaboatao:  {
+    label:    'Clinical+Saúde — Jaboatão Centro PE',
+    endereco: 'Rua Alberto Barreto, 05 — Jaboatão Centro, Jaboatão dos Guararapes PE',
+    cidade:   'Jaboatão dos Guararapes',
+  },
+  carpina:   {
+    label:    'Clínica — Carpina PE',
+    endereco: 'Rua Martins Júnior, 01 — São José, Carpina PE',
+    cidade:   'Carpina',
+  },
+  palmares:  {
+    label:    'Clínica Santa Joana — Palmares PE',
+    endereco: 'Rua Maurity, 361 — Centro, Palmares PE',
+    cidade:   'Palmares',
+  },
+  gravata:   {
+    label:    'Gravatá Clinical Center — Gravatá PE',
+    endereco: 'Av. Agamenon Magalhães, 269 — Prado, Gravatá PE',
+    cidade:   'Gravatá',
+  },
+  saude:    {
+    label:    'Consultório Médico Vida e Saúde · Clínica dos Feirantes — Cajueiro Seco / Prazeres PE',
+    endereco: '1ª Rua do Colégio, 35 — Cajueiro Seco, Jaboatão dos Guararapes PE',
+    cidade:   'Jaboatão dos Guararapes',
+  },  recife:    {
+    label:    'Clínica Recife — Recife PE',
+    endereco: 'Recife PE',
+    cidade:   'Recife',
+  },
+};
+
+// ── PARÂMETROS DA URL ────────────────────────────────────────────────
+const p       = new URLSearchParams(window.location.search);
+const pNome   = (p.get('nome')     || '').trim();
+const pWA     = (p.get('whatsapp') || '').trim();
+const pClin   = (p.get('clinica')  || '').trim().toLowerCase();
+const pCidade = (p.get('cidade')   || '').trim();
+
+// ── DETECTA CLÍNICA PELO SUBDOMÍNIO ─────────────────────────────────
+function clinicaPorSubdominio() {
+  const host = location.hostname.toLowerCase();
+  for (const k of Object.keys(CLINICAS)) {
+    if (host.startsWith(k + '.')) return k;
+  }
+  return null;
+}
+
+const chave    = pClin || clinicaPorSubdominio() || '';
+const clinica  = CLINICAS[chave] || { label: 'Consultório Dr. Lucas Pereira de Souza', cidade: '' };
+
+// ── PREENCHE HEADER ──────────────────────────────────────────────────
+document.getElementById('badge-txt').textContent       = clinica.label;
+document.getElementById('clinica-pre-val').textContent  = clinica.label;
+// Mostra endereço abaixo do nome se disponível
+if (clinica.endereco) {
+  const body = document.getElementById('clinica-pre-val');
+  body.innerHTML = `<span style="display:block">${clinica.label}</span>
+    <span style="display:block;font-size:11px;font-weight:400;color:var(--texto-2);margin-top:2px">${clinica.endereco}</span>`;
+}
+document.getElementById('clinica').value = clinica.label;
+document.title = `Pré-Atendimento · ${clinica.label}`;
+
+// ── NOME ─────────────────────────────────────────────────────────────
+if (pNome) {
+  document.getElementById('nome-pre').style.display = 'flex';
+  document.getElementById('nome-pre-val').textContent = pNome;
+  document.getElementById('nome-fld').style.display   = 'none';
+  document.getElementById('nome').value = pNome;
+}
+
+// ── WHATSAPP ─────────────────────────────────────────────────────────
+if (pWA) {
+  document.getElementById('wa-pre').style.display = 'flex';
+  document.getElementById('wa-pre-val').textContent = pWA;
+  document.getElementById('wa-fld').style.display   = 'none';
+  document.getElementById('wa').value = pWA;
+}
+
+// ── CIDADE ───────────────────────────────────────────────────────────
+const cidadeVal = pCidade || clinica.cidade;
+if (cidadeVal) document.getElementById('cidade').value = cidadeVal;
+
+// ── CHECKBOX OUTROS ──────────────────────────────────────────────────
+document.getElementById('cb-outros').addEventListener('change', function () {
+  const w = document.getElementById('outros-wrap');
+  w.classList.toggle('on', this.checked);
+  if (!this.checked) document.getElementById('outros-txt').value = '';
+});
+
+// ── PROGRESSO ────────────────────────────────────────────────────────
+function progresso() {
+  const campos = document.querySelectorAll('input:not([type=hidden]):not([type=checkbox]):not([type=radio]), textarea');
+  let n = 0;
+  campos.forEach(c => { if (c.value.trim()) n++; });
+  document.getElementById('prog').style.width = Math.min(100, Math.round(n / campos.length * 100)) + '%';
+}
+document.addEventListener('input',  progresso);
+document.addEventListener('change', progresso);
+progresso();
+
+// ── VALIDAÇÃO ────────────────────────────────────────────────────────
+function validar() {
+  let ok = true;
+  const set = (id, cond) => {
+    document.getElementById('e-' + id).classList.toggle('on', cond);
+    if (cond) { ok = false; const el = document.getElementById(id); if (el) el.classList.add('inv'); }
+    else { const el = document.getElementById(id); if (el) el.classList.remove('inv'); }
+  };
+  const noNomeRo = document.getElementById('nome-pre').style.display === 'none';
+  set('nome', noNomeRo && !document.getElementById('nome').value.trim());
+  const noWaRo = document.getElementById('wa-pre').style.display === 'none';
+  set('wa', noWaRo && !document.getElementById('wa').value.trim());
+  set('nasc', !document.getElementById('nasc').value);
+  set('qp',   !document.getElementById('qp').value.trim());
+  set('aut',  !document.querySelector('input[name=autorizacao]:checked'));
+  return ok;
+}
+
+// ── COLETA ────────────────────────────────────────────────────────────
+function coletar() {
+  const ant = [...document.querySelectorAll('input[name=antecedentes]:checked')].map(c => c.value).join(', ');
+  return {
+    timestamp:           new Date().toLocaleString('pt-BR'),
+    nome:                document.getElementById('nome').value.trim(),
+    whatsapp:            document.getElementById('wa').value.trim(),
+    clinica:             document.getElementById('clinica').value,
+    cidade:              document.getElementById('cidade').value.trim(),
+    data_nascimento:     document.getElementById('nasc').value,
+    queixa_principal:    document.getElementById('qp').value.trim(),
+    queixa_secundaria:   document.getElementById('qs').value.trim(),
+    antecedentes:        ant,
+    outros_antecedentes: document.getElementById('outros-txt').value.trim(),
+    tabagismo:           document.querySelector('input[name=tabagismo]:checked')?.value || '',
+    medicacoes:          document.getElementById('med').value.trim(),
+    alergias:            document.getElementById('alg').value.trim(),
+    autorizacao:         document.querySelector('input[name=autorizacao]:checked')?.value || '',
+    email:               document.getElementById('email').value.trim(),
+    tipo_consulta:       document.querySelector('input[name=tipo_consulta]:checked')?.value || '',
+    fonte:               'formulario_web',
+  };
+}
+
+// ── ENVIO ─────────────────────────────────────────────────────────────
+// ⚠️  Substitua pela URL do seu Google Apps Script após publicá-lo
+const ENDPOINT = 'https://script.google.com/macros/s/AKfycbz6dFceXmX_j8aCu4E27NrBf-o9BJ64ZCoionhK8alUA_nyogU_RulBFLoPOLYQ77LW/exec';
+
+document.getElementById('form').addEventListener('submit', async function (e) {
+  e.preventDefault();
+  if (!validar()) { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+
+  const btn = document.getElementById('btn');
+  btn.classList.add('loading');
+  btn.disabled = true;
+
+  const dados = coletar();
+
+  try {
+    await fetch(ENDPOINT, {
+      method:  'POST',
+      mode:    'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(dados),
+    });
+    document.getElementById('ok-nome').textContent = dados.nome.split(' ')[0];
+    document.getElementById('form-wrap').style.display = 'none';
+    document.getElementById('tela-ok').classList.add('on');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } catch {
+    btn.classList.remove('loading');
+    btn.disabled = false;
+    alert('Erro ao enviar. Verifique sua conexão e tente novamente.');
+  }
+});
+</script>
+
+<script>
+// ── LÓGICA DE EXCLUSÃO MÚTUA — TABAGISMO ────────────────────────
+var EXCLUSIVOS = ['tab_nunca', 'tab_ex', 'tab_atual'];
+
+function handleTabagismo(el) {
+  if (!el.checked) { atualizarTabagismoValor(); return; }
+  // Se marcou um exclusivo, desmarca os outros exclusivos
+  if (EXCLUSIVOS.indexOf(el.id) !== -1) {
+    EXCLUSIVOS.forEach(function(id) {
+      if (id !== el.id) {
+        var o = document.getElementById(id);
+        if (o) o.checked = false;
+      }
+    });
+  }
+  atualizarTabagismoValor();
+}
+
+// Atualiza campo hidden com todas as seleções concatenadas
+function atualizarTabagismoValor() {
+  var campos = ['tab_nunca','tab_ex','tab_atual','tab_passivo','tab_lenha'];
+  var selecionados = campos
+    .map(function(id){ return document.getElementById(id); })
+    .filter(function(el){ return el && el.checked; })
+    .map(function(el){ return el.value; });
+  
+  var hidden = document.getElementById('tabagismo-valor');
+  if (hidden) hidden.value = selecionados.join(' + ');
+}
+
+// Garante que o campo hidden seja enviado corretamente
+document.addEventListener('change', function(e) {
+  if (e.target && e.target.name && e.target.name.indexOf('tab_') === 0) {
+    atualizarTabagismoValor();
+  }
+});
+</script>
+
+
+<script>
+// ── TRANSCRIÇÃO POR VOZ ──────────────────────────────────────────
+var vozAtiva = null;
+var textoAcumulado = {};
+var reconhecimento = null;
+
+function iniciarVoz() {
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) return;
+
+  document.querySelectorAll('.btn-voz').forEach(function(b){
+    b.style.display = 'inline-flex';
+  });
+}
+
+function criarReconhecimento(campo) {
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) return null;
+
+  var r = new SR();
+  r.lang = 'pt-BR';
+  r.continuous = false; // false evita reinício automático e duplicação
+  r.interimResults = true;
+  r.maxAlternatives = 1;
+
+  r.onresult = function(e) {
+    var el = document.getElementById(campo === 'qp' ? 'qp' : 'qs');
+    if (!el) return;
+
+    var parcial = '';
+    var novoFinal = '';
+
+    for (var i = 0; i < e.results.length; i++) {
+      if (e.results[i].isFinal) {
+        novoFinal += e.results[i][0].transcript;
+      } else {
+        parcial = e.results[i][0].transcript;
+      }
+    }
+
+    if (novoFinal) {
+      textoAcumulado[campo] = (textoAcumulado[campo] || '') + novoFinal + ' ';
+    }
+
+    el.value = (textoAcumulado[campo] || '') + parcial;
+    el.scrollTop = el.scrollHeight;
+  };
+
+  r.onend = function() {
+    // Ao terminar uma sessão, reinicia se ainda ativo
+    if (vozAtiva === campo) {
+      try {
+        reconhecimento = criarReconhecimento(campo);
+        if (reconhecimento) reconhecimento.start();
+      } catch(e) {}
+    }
+  };
+
+  r.onerror = function(ev) {
+    if (ev.error === 'no-speech') {
+      // Silêncio — reinicia normalmente
+      if (vozAtiva === campo) {
+        try {
+          reconhecimento = criarReconhecimento(campo);
+          if (reconhecimento) reconhecimento.start();
+        } catch(e) {}
+      }
+    } else {
+      pararVoz();
+    }
+  };
+
+  return r;
+}
+
+function toggleVoz(campo) {
+  if (vozAtiva === campo) {
+    pararVoz();
+  } else {
+    if (vozAtiva) pararVoz();
+    iniciarGravacao(campo);
+  }
+}
+
+function iniciarGravacao(campo) {
+  vozAtiva = campo;
+
+  // Preserva texto já digitado
+  var el = document.getElementById(campo === 'qp' ? 'qp' : 'qs');
+  if (el && el.value && !textoAcumulado[campo]) {
+    textoAcumulado[campo] = el.value.trim() + ' ';
+  }
+
+  var btn = document.getElementById('btn-voz-' + campo);
+  var status = document.getElementById('status-voz-' + campo);
+  if (btn) { btn.classList.add('gravando'); btn.textContent = '⏹ Parar gravação'; }
+  if (status) status.classList.add('visivel');
+
+  reconhecimento = criarReconhecimento(campo);
+  if (reconhecimento) {
+    try { reconhecimento.start(); } catch(e) {}
+  }
+}
+
+function pararVoz() {
+  if (!vozAtiva) return;
+  var campo = vozAtiva;
+  vozAtiva = null;
+
+  if (reconhecimento) {
+    try { reconhecimento.stop(); } catch(e) {}
+    reconhecimento = null;
+  }
+
+  var btn = document.getElementById('btn-voz-' + campo);
+  var status = document.getElementById('status-voz-' + campo);
+  if (btn) {
+    btn.classList.remove('gravando');
+    btn.innerHTML = campo === 'qp' ? '🎙 Falar minha queixa' : '🎙 Falar queixa adicional';
+  }
+  if (status) status.classList.remove('visivel');
+}
+
+document.addEventListener('input', function(e) {
+  if (e.target && (e.target.id === 'qp' || e.target.id === 'qs') && !vozAtiva) {
+    textoAcumulado[e.target.id] = e.target.value;
+  }
+});
+
+document.addEventListener('DOMContentLoaded', iniciarVoz);</script>
+
 </body>
 </html>
