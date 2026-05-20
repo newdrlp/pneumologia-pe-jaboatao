@@ -26,6 +26,13 @@ header p{font-size:15px;color:rgba(255,255,255,0.7);margin-top:5px;}
 .disp-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--sky);margin-bottom:8px;font-weight:500;}
 .disp-info{font-size:16px;color:white;font-weight:600;}
 .disp-sub{font-size:14px;color:rgba(255,255,255,0.65);margin-top:4px;}
+.agenda-proximas{max-width:420px;margin:10px auto 0;text-align:left;color:white;}
+.agenda-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin:0 0 8px 2px;font-weight:600;}
+.agenda-item{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;background:rgba(255,255,255,0.055);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:10px 12px;margin-bottom:7px;}
+.agenda-data{font-size:14px;font-weight:700;color:white;line-height:1.25;}
+.agenda-meta{font-size:12px;color:rgba(255,255,255,0.68);margin-top:2px;line-height:1.35;}
+.agenda-tag{flex-shrink:0;margin-top:1px;border-radius:999px;padding:4px 8px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.72);background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.12);}
+.agenda-tag.extra{color:white;background:rgba(74,144,184,0.38);border-color:rgba(168,212,234,0.45);}
 .sugestao-alt{max-width:420px;margin:14px auto 0;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:14px 16px;text-align:left;}
 .alt-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);display:block;margin-bottom:6px;}
 .alt-info strong{font-size:14px;color:rgba(255,255,255,0.85);display:block;}
@@ -103,6 +110,10 @@ footer strong{color:rgba(255,255,255,0.8);}
     <div class="disp-info"><span id="disp-info-dinamico">Calculando...</span></div>
     <div class="disp-sub"><span id="disp-sub-dinamico">...</span></div>
   </div>
+  <div class="agenda-proximas">
+    <div class="agenda-label">Próximas datas</div>
+    <div id="agenda-proximas-lista"></div>
+  </div>
     <div class="sugestao-alt">
   <span class="alt-label">TAMBÉM DISPONÍVEL</span>
   <div class="alt-info">
@@ -172,6 +183,7 @@ footer strong{color:rgba(255,255,255,0.8);}
 </footer>
 <script>var CLINICA_ID="jaboatao";
 var SCRIPT_URL="https://script.google.com/macros/s/AKfycbw6ABM1F6UmxGGRjyHDCCN5jPlWgsFHZK3IhhBk3B-ymQLQOUQV6cPeyKf6P4VI9Om9/exec",CIDADE="Jaboatão",CLINICA="Clínica Jaboatão Centro";var FREQUENCIA="quinzenal",DIA_SEMANA=1,DATA_BASE="2026-05-18",TURNO="ambos",HORARIO="8h às 17h";
+var EXCECOES_ATENDIMENTO=[];
 function calcProximaData(){
   var hoje=new Date();hoje.setHours(0,0,0,0);
   if(FREQUENCIA==="semanal"){
@@ -258,7 +270,40 @@ function enviar(){
   if (dispSub)  dispSub.textContent  = TURNO_NOME[TURNO_CFG] + ' · ' + HORARIO_CFG;
   if (uboxBot)  uboxBot.textContent  = '📅 ' + dataFmt + ' · ' + TURNO_NOME[TURNO_CFG] + ' · ' + HORARIO_CFG;
 })();
-verificarHorario();</script>
+function renderAgendaSequencia(){
+  var el=document.getElementById('agenda-proximas-lista');
+  if(!el)return;
+  var turnoNome={manha:'Manhã',tarde:'Tarde',ambos:'Manhã e tarde',cancelado:'Cancelado'};
+  function parseData(iso){var p=(iso||'').split('-');return new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]),12,0,0);}
+  function isoData(d){var m=String(d.getMonth()+1).padStart(2,'0'),dia=String(d.getDate()).padStart(2,'0');return d.getFullYear()+'-'+m+'-'+dia;}
+  function fmtCurta(d){var s=d.toLocaleDateString('pt-BR',{weekday:'short',day:'2-digit',month:'2-digit'});return s.charAt(0).toUpperCase()+s.slice(1).replace('.', '');}
+  function fmtLonga(d){var s=d.toLocaleDateString('pt-BR',{weekday:'long',day:'2-digit',month:'2-digit'});return s.charAt(0).toUpperCase()+s.slice(1);}
+  var hoje=new Date();hoje.setHours(0,0,0,0);
+  var itens=[];
+  var extras=(typeof EXCECOES_ATENDIMENTO!=='undefined'&&Array.isArray(EXCECOES_ATENDIMENTO))?EXCECOES_ATENDIMENTO:[];
+  extras.forEach(function(e){if(!e.data)return;var d=parseData(e.data);var dz=new Date(d);dz.setHours(0,0,0,0);if(dz>=hoje)itens.push({data:d,iso:isoData(d),turno:e.turno||TURNO,horario:e.horario||HORARIO,tipo:'extra',obs:e.obs||'Turno adicional'});});
+  var d;
+  if(FREQUENCIA==='semanal'){
+    d=new Date(hoje);var diff=(DIA_SEMANA-d.getDay()+7)%7;d.setDate(d.getDate()+(diff===0?7:diff));
+    for(var i=0;i<5;i++){itens.push({data:new Date(d),iso:isoData(d),turno:TURNO,horario:HORARIO,tipo:'habitual'});d.setDate(d.getDate()+7);}
+  }else if(FREQUENCIA==='quinzenal'&&DATA_BASE){
+    d=parseData(DATA_BASE);while(d<=hoje)d.setDate(d.getDate()+14);
+    for(var j=0;j<5;j++){itens.push({data:new Date(d),iso:isoData(d),turno:TURNO,horario:HORARIO,tipo:'habitual'});d.setDate(d.getDate()+14);}
+  }
+  var vistos={};
+  itens=itens.sort(function(a,b){if(a.data-b.data!==0)return a.data-b.data;return a.tipo==='extra'?-1:1;}).filter(function(item){var key=item.iso+'|'+item.turno+'|'+item.horario+'|'+item.tipo;if(vistos[key])return false;vistos[key]=true;return true;}).slice(0,4);
+  if(!itens.length){el.innerHTML='<div class="agenda-item"><div><div class="agenda-data">Agenda em atualização</div><div class="agenda-meta">Consulte a disponibilidade pelo WhatsApp.</div></div></div>';return;}
+  var prox=itens.filter(function(item){return item.turno!=='cancelado';})[0]||itens[0];
+  if(prox){
+    PROX_DATA=prox.iso;TURNO=prox.turno;HORARIO=prox.horario;
+    var info=document.getElementById('disp-info-dinamico'),sub=document.getElementById('disp-sub-dinamico'),box=document.getElementById('ubox-bot-dinamico');
+    if(info)info.textContent=fmtLonga(prox.data);
+    if(sub)sub.textContent=(turnoNome[prox.turno]||prox.turno)+' · '+prox.horario+(prox.tipo==='extra'?' · adicional':'');
+    if(box)box.textContent='📅 '+fmtLonga(prox.data)+' · '+(turnoNome[prox.turno]||prox.turno)+' · '+prox.horario+(prox.tipo==='extra'?' · adicional':'');
+  }
+  el.innerHTML=itens.map(function(item){var tag=item.tipo==='extra'?'Adicional':'Habitual';var meta=(turnoNome[item.turno]||item.turno)+' · '+item.horario+(item.obs?' · '+item.obs:'');return '<div class="agenda-item"><div><div class="agenda-data">'+fmtCurta(item.data)+'</div><div class="agenda-meta">'+meta+'</div></div><span class="agenda-tag '+(item.tipo==='extra'?'extra':'')+'">'+tag+'</span></div>';}).join('');
+}
+renderAgendaSequencia();verificarHorario();</script>
 
 <script>
 (function(){
