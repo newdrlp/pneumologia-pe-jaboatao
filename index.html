@@ -21,14 +21,15 @@ header p{font-size:15px;color:rgba(255,255,255,0.7);margin-top:5px;}
 .crm{display:inline-flex;gap:12px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:7px 18px;font-size:12px;color:rgba(255,255,255,0.7);margin:8px 0 16px;}
 .btns{display:flex;flex-direction:column;gap:10px;max-width:380px;margin:0 auto;}
 .btn-wa{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--green);color:white;text-decoration:none;padding:16px;border-radius:100px;font-size:16px;font-weight:600;box-shadow:0 4px 20px rgba(37,211,102,0.35);}
-.btn-ag{display:flex;align-items:center;justify-content:center;gap:8px;background:transparent;color:white;text-decoration:none;padding:15px;border-radius:100px;font-size:15px;font-weight:500;border:2px solid rgba(255,255,255,0.4);}
+.btn-ag{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:rgba(0,0,0,0.14);color:white;text-decoration:none;padding:14px 16px;border-radius:50px;font-size:16px;font-weight:700;border:2px solid rgba(255,255,255,0.34);box-shadow:0 4px 18px rgba(0,0,0,0.10);transition:all .2s;}
+.btn-ag:hover,.btn-ag.ativo{background:rgba(255,255,255,0.10);border-color:rgba(168,212,234,0.75);}
 .disp{max-width:420px;margin:28px auto 0;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:14px;padding:16px 20px;text-align:left;}
-.disp-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--sky);margin-bottom:8px;font-weight:500;}
+.disp-label{display:block;font-size:15px;color:var(--text);margin-bottom:8px;font-weight:700;}
 .disp-info{font-size:16px;color:white;font-weight:600;}
 .disp-sub{font-size:14px;color:rgba(255,255,255,0.65);margin-top:4px;}
 .agenda-proximas{max-width:420px;margin:10px auto 0;text-align:left;color:white;}
 .agenda-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.45);margin:0 0 8px 2px;font-weight:600;}
-.agenda-item{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;background:rgba(255,255,255,0.055);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:10px 12px;margin-bottom:7px;}
+.agenda-item{width:100%;display:flex;align-items:flex-start;justify-content:space-between;gap:10px;background:rgba(255,255,255,0.055);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:10px 12px;margin-bottom:7px;text-align:left;font-family:'DM Sans',sans-serif;color:white;cursor:pointer;transition:background .2s,border-color .2s,box-shadow .2s;}.agenda-item:hover{background:rgba(255,255,255,0.10);border-color:rgba(168,212,234,0.35);}.agenda-item.ativo{background:rgba(74,144,184,0.24);border-color:rgba(168,212,234,0.62);box-shadow:0 0 0 1px rgba(168,212,234,0.18) inset;}.agenda-item:focus-visible{outline:2px solid #a8d4ea;outline-offset:2px;}
 .agenda-data{font-size:14px;font-weight:700;color:white;line-height:1.25;}
 .agenda-meta{font-size:12px;color:rgba(255,255,255,0.68);margin-top:2px;line-height:1.35;}
 .agenda-tag{flex-shrink:0;margin-top:1px;border-radius:999px;padding:4px 8px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,0.72);background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.12);}
@@ -49,12 +50,14 @@ header p{font-size:15px;color:rgba(255,255,255,0.7);margin-top:5px;}
 .aviso{background:#fff8e1;border:1px solid #ffe082;border-radius:10px;padding:14px 16px;font-size:14px;color:#856404;margin-bottom:18px;line-height:1.5;display:none;}
 .fg{margin-bottom:20px;}
 label{display:block;font-size:14px;color:var(--muted);margin-bottom:8px;font-weight:500;}
-input{width:100%;padding:13px 16px;border:1.5px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:16px;color:var(--text);outline:none;background:white;-webkit-appearance:none;}
+input{width:100%;padding:14px 16px;border:1.5px solid var(--border);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:17px;font-weight:600;color:var(--text);outline:none;background:white;-webkit-appearance:none;}
+input::placeholder{color:#526f80;font-weight:700;opacity:0.86;}
 input:focus{border-color:var(--accent);}
 .rg{display:flex;gap:8px;flex-wrap:wrap;}
-.ro{flex:1;min-width:calc(50% - 4px);padding:12px 8px;border:1.5px solid var(--border);border-radius:10px;text-align:center;font-size:14px;cursor:pointer;color:var(--muted);background:white;font-family:'DM Sans',sans-serif;}
-.ro.ativo{border-color:var(--accent);background:var(--ice);color:var(--accent);font-weight:600;}
-.btn-sub{width:100%;padding:17px;background:var(--green);color:white;border:none;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:17px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:22px;-webkit-appearance:none;}
+.ro{flex:1;min-width:calc(50% - 4px);padding:14px 10px;border:1.5px solid var(--border);border-radius:10px;text-align:center;font-size:15px;line-height:1.25;cursor:pointer;color:var(--text);background:white;font-family:'DM Sans',sans-serif;font-weight:700;}
+.ro.ativo{border-color:var(--accent);background:var(--ice);color:var(--accent);font-weight:800;box-shadow:0 0 0 1px rgba(46,125,166,0.12) inset;}
+.btn-sub{width:100%;padding:18px;background:var(--accent);color:white;border:none;border-radius:12px;font-family:'DM Sans',sans-serif;font-size:18px;font-weight:800;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:24px;-webkit-appearance:none;box-shadow:0 6px 22px rgba(46,125,166,0.28);}
+.btn-icon{font-size:21px;line-height:1;}
 .btn-sub:disabled{opacity:0.5;}
 .sucesso{display:none;background:white;border-radius:16px;padding:32px 24px;border:1px solid var(--border);}
 .sucesso h3{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--navy);margin-bottom:12px;text-align:center;line-height:1.2;}
@@ -81,29 +84,29 @@ footer strong{color:rgba(255,255,255,0.8);}
 
 .btn-tel{display:flex;align-items:center;justify-content:center;gap:10px;
   width:100%;padding:16px;border-radius:50px;font-size:16px;font-weight:700;
-  background:transparent;border:2px solid rgba(255,255,255,0.3);color:white;
+  background:rgba(0,0,0,0.14);border:2px solid rgba(255,255,255,0.52);color:white;
   text-decoration:none;margin-bottom:12px;letter-spacing:0.3px;
-  transition:all 0.2s;}
+  transition:all 0.2s;box-shadow:0 4px 18px rgba(0,0,0,0.10);}
 .btn-tel:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.6);}
 
 </style>
 </head>
 <body>
 <header>
-  <h1>Dr. Lucas Pereira de Souza<br>Pneumologista · Espirometria</h1>
+  <h1>Dr. Lucas Pereira de Souza<br>Pneumologia - Espirometria</h1>
       <p>CRM-PE 9777 · RQE 9868 · Jaboatão — PE</p>
 </header>
 <div class="hero">
   <div class="logo-wrap"><img src="https://raw.githubusercontent.com/newdrlp/assets/main/logo_circular.png" alt="Dr. Lucas Pereira de Souza - Pneumologista" loading="eager" crossorigin="anonymous"></div>
   <p class="eyebrow">Jaboatão · Pernambuco</p>
-  <h2>Clinical<span class="brand-plus">+</span>Saúde</h2>
+  <h2>Especialista desde 1997</h2>
   <div class="btns">
     <a href="tel:+558137233333" class="btn-tel" onclick="iniciarRastreioLigacao()">📞 (81) 3723-3333</a>
     <a href="https://api.whatsapp.com/send?phone=558198385415&text=Olá%2C+gostaria+de+agendar+consulta+em+Jaboatão+com+o+Dr.+Lucas+Pereira." class="btn-wa">
       <svg style="width:22px;height:22px;fill:white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
       Agendar pelo WhatsApp
     </a>
-    <a href="#agendar" class="btn-ag">📅 Pré-agendamento online</a>
+    <a href="#agenda-proximas-lista" class="btn-ag" id="preagendamento-cta" onclick="iniciarPreAgendamento(event)">📅 Pré-agendamento online</a>
   </div>
   <div class="disp">
     <div class="disp-label">Próximo atendimento</div>
@@ -111,7 +114,7 @@ footer strong{color:rgba(255,255,255,0.8);}
     <div class="disp-sub"><span id="disp-sub-dinamico">...</span></div>
   </div>
   <div class="agenda-proximas">
-    <div class="agenda-label">Próximas datas</div>
+    <div class="agenda-label">Próximos dias de atendimento</div>
     <div id="agenda-proximas-lista"></div>
   </div>
     <div class="sugestao-alt">
@@ -127,7 +130,7 @@ footer strong{color:rgba(255,255,255,0.8);}
 
 <div class="container" id="agendar">
   <p class="slabel">Pré-agendamento</p>
-  <h2 class="stitle">Solicite sua consulta</h2>
+  <h2 class="stitle" id="form-title">Solicite sua consulta</h2>
   <div class="form-card" id="form-card">
     <div class="ubox">
       <div class="ubox-top">Jaboatão — Clínica Jaboatão Centro</div>
@@ -142,7 +145,7 @@ footer strong{color:rgba(255,255,255,0.8);}
         <div class="ro" onclick="selectOpt(this,'tipo')">Primeira consulta</div>
         <div class="ro" onclick="selectOpt(this,'tipo')">Nova consulta</div>
         <div class="ro" onclick="selectOpt(this,'tipo')">Retorno</div>
-        <div class="ro" onclick="selectOpt(this,'tipo')">Exame</div>
+        <div class="ro" onclick="selectOpt(this,'tipo')">Espirometria</div>
       </div>
     </div>
     <div class="fg"><label>Período preferido</label>
@@ -153,15 +156,15 @@ footer strong{color:rgba(255,255,255,0.8);}
       </div>
     </div>
     <button class="btn-sub" id="btn-sub" onclick="enviar()">
-      <svg style="width:22px;height:22px;fill:white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Registrar meu agendamento
+      <span class="btn-icon" aria-hidden="true">✓</span>
+      Registrar pré-agendamento
     </button>
   </div>
   <div class="sucesso fade-in" id="sucesso">
     <div style="text-align:center;font-size:56px;margin-bottom:12px">📅</div>
-    <h3>Agendamento registrado!</h3>
+    <h3>Pré-agendamento registrado!</h3>
     <div class="det" id="det"></div>
-    <p class="msg">Seu agendamento foi registrado. Entraremos em contato pelo WhatsApp para confirmar.<br>Se preferir, ligue: <strong>seg–sex, 8h às 18h</strong>.</p>
+    <p class="msg">Seu pedido foi registrado. Entraremos em contato pelo WhatsApp para confirmar.<br>Se precisar mudar a data, basta refazer o pré-agendamento.</p>
     <div id="pp"></div>
   </div>
 </div>
@@ -182,26 +185,19 @@ footer strong{color:rgba(255,255,255,0.8);}
   Clínica Jaboatão Centro · Rua Alberto Barreto, 05, Jaboatão Centro — Jaboatão PE
 </footer>
 <script>var CLINICA_ID="jaboatao";
-var SCRIPT_URL="https://script.google.com/macros/s/AKfycbw6ABM1F6UmxGGRjyHDCCN5jPlWgsFHZK3IhhBk3B-ymQLQOUQV6cPeyKf6P4VI9Om9/exec",CIDADE="Jaboatão",CLINICA="Clínica Jaboatão Centro";var FREQUENCIA="quinzenal",DIA_SEMANA=1,DATA_BASE="2026-05-18",TURNO="ambos",HORARIO="8h às 17h";
+var SCRIPT_URL="https://script.google.com/macros/s/AKfycbw6ABM1F6UmxGGRjyHDCCN5jPlWgsFHZK3IhhBk3B-ymQLQOUQV6cPeyKf6P4VI9Om9/exec",CIDADE="Jaboatão",CLINICA="Clínica Jaboatão Centro";var FREQUENCIA="quinzenal",DIA_SEMANA=1,DATA_BASE="2026-05-18",TURNO="ambos",HORARIO="8h às 17h";var TURNO_HABITUAL=TURNO,HORARIO_HABITUAL=HORARIO;
 var EXCECOES_ATENDIMENTO=[];
+function getProximaExcecao(){var hoje=new Date();hoje.setHours(0,0,0,0);var lista=EXCECOES_ATENDIMENTO.map(function(e){return Object.assign({},e,{dt:new Date(e.data+"T12:00:00")});}).filter(function(e){var d=new Date(e.dt);d.setHours(0,0,0,0);return d>=hoje&&e.turno!=='cancelado';}).sort(function(a,b){return a.dt-b.dt;});return lista[0]||null;}
 function calcProximaData(){
+  var exc=getProximaExcecao();if(exc)return exc.dt;
   var hoje=new Date();hoje.setHours(0,0,0,0);
-  if(FREQUENCIA==="semanal"){
-    var d=new Date(hoje);
-    var diff=(DIA_SEMANA-d.getDay()+7)%7;
-    d.setDate(d.getDate()+(diff===0?7:diff));
-    return d;
-  }
-  if(FREQUENCIA==="quinzenal"&&DATA_BASE){
-    var base=new Date(DATA_BASE+"T12:00:00");
-    var d=new Date(base);
-    while(d<=hoje)d.setDate(d.getDate()+14);
-    return d;
-  }
+  if(FREQUENCIA==="semanal"){var d=new Date(hoje);var diff=(DIA_SEMANA-d.getDay()+7)%7;d.setDate(d.getDate()+(diff===0?7:diff));return d;}
+  if(FREQUENCIA==="quinzenal"&&DATA_BASE){var base=new Date(DATA_BASE+"T12:00:00");var d=new Date(base);while(d<=hoje)d.setDate(d.getDate()+14);return d;}
   return new Date();
 }
 var _prox=calcProximaData();
 var PROX_DATA=_prox.toISOString().split("T")[0];
+var _excProx=getProximaExcecao();if(_excProx){TURNO=_excProx.turno;HORARIO=_excProx.horario;}
 
 var TURNO_NOME={"manha":"Manhã","tarde":"Tarde","ambos":"Manhã e tarde"};
 var estado={tipo:null,periodo:null};
@@ -213,95 +209,82 @@ function enviar(){
   if(!estado.tipo){alert("Selecione o tipo de atendimento.");return;}if(!estado.periodo){alert("Selecione o período.");return;}
   var btn=document.getElementById('btn-sub');btn.disabled=true;btn.textContent="Registrando...";
   var d=new Date(PROX_DATA+'T12:00:00'),dl=d.toLocaleDateString('pt-BR',{weekday:'long',day:'2-digit',month:'2-digit'});
-  fetch(SCRIPT_URL,{method:"POST",body:JSON.stringify({nome:nome,whatsapp:wpp,cidade:CIDADE+" — "+CLINICA,tipo:estado.tipo,periodo:estado.periodo})})
+  var periodoEnvio=estado.periodo+' | '+dl+' | '+TURNO_NOME[TURNO]+' '+HORARIO;
+  fetch(SCRIPT_URL,{method:"POST",body:JSON.stringify({nome:nome,whatsapp:wpp,clinica:CLINICA,cidade:CIDADE,tipo:estado.tipo,periodo:periodoEnvio,periodo_preferido:estado.periodo,data_atendimento:PROX_DATA,data_atendimento_label:dl,turno_atendimento:TURNO,horario_atendimento:HORARIO})})
   .then(function(){
     document.getElementById('form-card').style.display='none';
-    document.getElementById('det').innerHTML='<strong>'+nome+'</strong>, agendamento para <strong>'+CIDADE+'</strong> registrado.<br>Próximo atendimento: <strong>'+dl+'</strong><br>'+TURNO_NOME[TURNO]+' · '+HORARIO+'<br>WhatsApp: <strong>'+wpp+'</strong>';
+    document.getElementById('det').innerHTML='<strong>'+nome+'</strong>, pré-agendamento para <strong>'+CIDADE+'</strong> registrado.<br>Data escolhida: <strong>'+dl+'</strong><br>'+TURNO_NOME[TURNO]+' · '+HORARIO+'<br>WhatsApp: <strong>'+wpp+'</strong>';
     var pp=document.getElementById('pp');
-    if(estado.tipo==='Primeira consulta'||estado.tipo==='Nova consulta'){pp.innerHTML='<div class="pc"><div class="pci"><strong>Preencha sua ficha de pré-atendimento</strong><span style="font-size:15px;display:block;margin-top:6px" style="font-size:15px;display:block;margin-top:6px">Agora, registre suas queixas e informações adicionais de saúde, diretamente para o Dr. Lucas Pereira estar ciente ao iniciar seu atendimento.</span></div><a class="btn-p" href="https://jaboatao.pneumologia-pe.com.br/pre-atendimento" id="btn-ficha" target="_blank">Preencher ficha</a></div>';setTimeout(function(){var el=document.getElementById("btn-ficha");if(el)el.scrollIntoView({behavior:"smooth",block:"center"});},300);}
-    else if(estado.tipo==='Exame')pp.innerHTML='<div class="pc"><div class="pci"><strong>Preparo para Espirometria</strong><span>Saiba quais medicamentos suspender e como se preparar.</span></div><a class="btn-p" href="#" target="_blank">Ver orientações</a></div>';
-    document.getElementById('sucesso').style.display='block';window.scrollTo({top:0,behavior:'smooth'});
-  }).catch(function(){btn.disabled=false;btn.textContent='Registrar meu agendamento';alert("Erro ao enviar. Tente novamente.");});
+    if(estado.tipo==='Primeira consulta'||estado.tipo==='Nova consulta'){pp.innerHTML='<div class="pc"><div class="pci"><strong>Preencha sua ficha de pré-atendimento</strong><span style="font-size:15px;display:block;margin-top:6px">Agora, registre suas queixas e informações adicionais de saúde, diretamente para o Dr. Lucas Pereira estar ciente ao iniciar seu atendimento.</span></div><a class="btn-p" href="https://jaboatao.pneumologia-pe.com.br/pre-atendimento" id="btn-ficha" target="_blank">Preencher ficha</a></div>';setTimeout(function(){var el=document.getElementById("btn-ficha");if(el)el.scrollIntoView({behavior:"smooth",block:"center"});},300);}
+    else if(estado.tipo==='Exame'||estado.tipo==='Espirometria')pp.innerHTML='<div class="pc"><div class="pci"><strong>Preparo para Espirometria</strong><span>Saiba quais medicamentos suspender e como se preparar.</span></div><a class="btn-p" href="/espirometria/" target="_blank">Ver orientações</a></div>';
+    var sucesso=document.getElementById('sucesso');sucesso.style.display='block';sucesso.scrollIntoView({behavior:'smooth',block:'start'});
+  }).catch(function(){btn.disabled=false;btn.innerHTML='<span class="btn-icon" aria-hidden="true">✓</span>Registrar pré-agendamento';alert("Erro ao enviar. Tente novamente.");});
 }
-// ── CÁLCULO DINÂMICO DE DATA ──────────────────────────────────────
 (function() {
   var FREQ = "quinzenal";
-  var DIA_SEMANA = 1; // 0=dom,1=seg,2=ter,3=qua,4=qui,5=sex
-  var BASE = "2026-05-18"; // data base para quinzenal (YYYY-MM-DD)
+  var DIA_SEMANA = 1;
+  var BASE = "2026-05-18";
   var TURNO_CFG = "ambos";
   var HORARIO_CFG = "8h às 17h";
   var TURNO_NOME = {manha:"Manhã",tarde:"Tarde",ambos:"Manhã e tarde"};
-
+  var EXCECAO_CFG = getProximaExcecao();
+  if (EXCECAO_CFG) { TURNO_CFG = EXCECAO_CFG.turno; HORARIO_CFG = EXCECAO_CFG.horario; }
   function proximaData() {
+    if (EXCECAO_CFG) return EXCECAO_CFG.dt;
     var hoje = new Date(); hoje.setHours(0,0,0,0);
-    if (FREQ === 'semanal') {
-      var d = new Date(hoje);
-      var diff = (DIA_SEMANA - d.getDay() + 7) % 7;
-      d.setDate(d.getDate() + (diff === 0 ? 7 : diff));
-      return d;
-    }
-    if (FREQ === 'quinzenal' && BASE) {
-      var partes = BASE.split('-');
-      var d = new Date(parseInt(partes[0]), parseInt(partes[1])-1, parseInt(partes[2]));
-      while (d <= hoje) d.setDate(d.getDate() + 14);
-      return d;
-    }
+    if (FREQ === 'semanal') {var d = new Date(hoje);var diff = (DIA_SEMANA - d.getDay() + 7) % 7;d.setDate(d.getDate() + (diff === 0 ? 7 : diff));return d;}
+    if (FREQ === 'quinzenal' && BASE) {var partes = BASE.split('-');var d = new Date(parseInt(partes[0]), parseInt(partes[1])-1, parseInt(partes[2]));while (d <= hoje) d.setDate(d.getDate() + 14);return d;}
     return null;
   }
-
-  var prox = proximaData();
-  if (!prox) return;
-
-  // Atualiza PROX_DATA para uso na função enviar()
-  PROX_DATA = prox.toISOString().split('T')[0];
-  TURNO = TURNO_CFG;
-  HORARIO = HORARIO_CFG;
-
-  var opts = {weekday:'long', day:'2-digit', month:'2-digit'};
-  var dataFmt = prox.toLocaleDateString('pt-BR', opts);
-  // Capitaliza
-  dataFmt = dataFmt.charAt(0).toUpperCase() + dataFmt.slice(1);
-
-  // Atualiza bloco hero
-  var dispInfo = document.getElementById('disp-info-dinamico');
-  var dispSub  = document.getElementById('disp-sub-dinamico');
-  var uboxBot  = document.getElementById('ubox-bot-dinamico');
+  var prox = proximaData(); if (!prox) return;
+  PROX_DATA = prox.toISOString().split('T')[0]; TURNO = TURNO_CFG; HORARIO = HORARIO_CFG;
+  var dataFmt = prox.toLocaleDateString('pt-BR', {weekday:'long', day:'2-digit', month:'2-digit'});dataFmt = dataFmt.charAt(0).toUpperCase() + dataFmt.slice(1);
+  var dispInfo = document.getElementById('disp-info-dinamico'), dispSub  = document.getElementById('disp-sub-dinamico'), uboxBot  = document.getElementById('ubox-bot-dinamico');
   if (dispInfo) dispInfo.textContent = dataFmt;
   if (dispSub)  dispSub.textContent  = TURNO_NOME[TURNO_CFG] + ' · ' + HORARIO_CFG;
   if (uboxBot)  uboxBot.textContent  = '📅 ' + dataFmt + ' · ' + TURNO_NOME[TURNO_CFG] + ' · ' + HORARIO_CFG;
 })();
+var AGENDA_OPCOES=[];
+var agendaSelecionada=null;
+function agendaTurnoNome(turno){var nomes={manha:'Manhã',tarde:'Tarde',ambos:'Manhã e tarde',cancelado:'Cancelado'};return nomes[turno]||turno||'';}
+function fmtAgendaCurta(d){var s=d.toLocaleDateString('pt-BR',{weekday:'short',day:'2-digit',month:'2-digit'});return s.charAt(0).toUpperCase()+s.slice(1).replace('.', '');}
+function fmtAgendaLonga(d){var s=d.toLocaleDateString('pt-BR',{weekday:'long',day:'2-digit',month:'2-digit'});return s.charAt(0).toUpperCase()+s.slice(1);}
+function atualizarAgendaEscolhida(item){
+  if(!item)return; PROX_DATA=item.iso; TURNO=item.turno; HORARIO=item.horario;
+  var info=document.getElementById('disp-info-dinamico'),sub=document.getElementById('disp-sub-dinamico'),box=document.getElementById('ubox-bot-dinamico');
+  var extra=item.tipo==='extra'?' · adicional':'';
+  if(info)info.textContent=fmtAgendaLonga(item.data);
+  if(sub)sub.textContent=agendaTurnoNome(item.turno)+' · '+item.horario+extra;
+  if(box)box.textContent='📅 Data escolhida: '+fmtAgendaLonga(item.data)+' · '+agendaTurnoNome(item.turno)+' · '+item.horario+extra;
+}
+function iniciarPreAgendamento(evt){
+  if(evt)evt.preventDefault();
+  var cta=document.getElementById('preagendamento-cta');
+  if(cta){cta.textContent='Agora escolha a data em que quer ser atendido';cta.classList.add('ativo');}
+  var agenda=document.getElementById('agenda-proximas-lista'); if(agenda)agenda.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function selecionarAgenda(idx, rolar){
+  var item=AGENDA_OPCOES[idx]; if(!item||item.turno==='cancelado')return;
+  agendaSelecionada=idx; atualizarAgendaEscolhida(item);
+  document.querySelectorAll('.agenda-item').forEach(function(btn,i){btn.classList.toggle('ativo',i===idx);});
+  if(rolar!==false){var cta=document.getElementById('preagendamento-cta'); if(cta){cta.textContent='Data escolhida. Preencha o formulário abaixo';cta.classList.add('ativo');} var titulo=document.getElementById('form-title'); if(titulo)titulo.textContent='Solicite agora sua consulta'; var form=document.getElementById('agendar'); if(form)form.scrollIntoView({behavior:'smooth',block:'start'});}
+}
 function renderAgendaSequencia(){
-  var el=document.getElementById('agenda-proximas-lista');
-  if(!el)return;
-  var turnoNome={manha:'Manhã',tarde:'Tarde',ambos:'Manhã e tarde',cancelado:'Cancelado'};
+  var el=document.getElementById('agenda-proximas-lista'); if(!el)return;
   function parseData(iso){var p=(iso||'').split('-');return new Date(parseInt(p[0]),parseInt(p[1])-1,parseInt(p[2]),12,0,0);}
   function isoData(d){var m=String(d.getMonth()+1).padStart(2,'0'),dia=String(d.getDate()).padStart(2,'0');return d.getFullYear()+'-'+m+'-'+dia;}
-  function fmtCurta(d){var s=d.toLocaleDateString('pt-BR',{weekday:'short',day:'2-digit',month:'2-digit'});return s.charAt(0).toUpperCase()+s.slice(1).replace('.', '');}
-  function fmtLonga(d){var s=d.toLocaleDateString('pt-BR',{weekday:'long',day:'2-digit',month:'2-digit'});return s.charAt(0).toUpperCase()+s.slice(1);}
-  var hoje=new Date();hoje.setHours(0,0,0,0);
-  var itens=[];
+  var hoje=new Date();hoje.setHours(0,0,0,0); var itens=[];
   var extras=(typeof EXCECOES_ATENDIMENTO!=='undefined'&&Array.isArray(EXCECOES_ATENDIMENTO))?EXCECOES_ATENDIMENTO:[];
-  extras.forEach(function(e){if(!e.data)return;var d=parseData(e.data);var dz=new Date(d);dz.setHours(0,0,0,0);if(dz>=hoje)itens.push({data:d,iso:isoData(d),turno:e.turno||TURNO,horario:e.horario||HORARIO,tipo:'extra',obs:e.obs||'Turno adicional'});});
+  extras.forEach(function(e){if(!e.data)return;var d=parseData(e.data);var dz=new Date(d);dz.setHours(0,0,0,0);if(dz>=hoje)itens.push({data:d,iso:isoData(d),turno:e.turno||TURNO_HABITUAL,horario:e.horario||HORARIO_HABITUAL,tipo:'extra',obs:e.obs||'Turno adicional'});});
   var d;
-  if(FREQUENCIA==='semanal'){
-    d=new Date(hoje);var diff=(DIA_SEMANA-d.getDay()+7)%7;d.setDate(d.getDate()+(diff===0?7:diff));
-    for(var i=0;i<5;i++){itens.push({data:new Date(d),iso:isoData(d),turno:TURNO,horario:HORARIO,tipo:'habitual'});d.setDate(d.getDate()+7);}
-  }else if(FREQUENCIA==='quinzenal'&&DATA_BASE){
-    d=parseData(DATA_BASE);while(d<=hoje)d.setDate(d.getDate()+14);
-    for(var j=0;j<5;j++){itens.push({data:new Date(d),iso:isoData(d),turno:TURNO,horario:HORARIO,tipo:'habitual'});d.setDate(d.getDate()+14);}
-  }
+  if(FREQUENCIA==='semanal'){d=new Date(hoje);var diff=(DIA_SEMANA-d.getDay()+7)%7;d.setDate(d.getDate()+(diff===0?7:diff));for(var i=0;i<5;i++){itens.push({data:new Date(d),iso:isoData(d),turno:TURNO_HABITUAL,horario:HORARIO_HABITUAL,tipo:'habitual'});d.setDate(d.getDate()+7);}}
+  else if(FREQUENCIA==='quinzenal'&&DATA_BASE){d=parseData(DATA_BASE);while(d<=hoje)d.setDate(d.getDate()+14);for(var j=0;j<5;j++){itens.push({data:new Date(d),iso:isoData(d),turno:TURNO_HABITUAL,horario:HORARIO_HABITUAL,tipo:'habitual'});d.setDate(d.getDate()+14);}}
   var vistos={};
   itens=itens.sort(function(a,b){if(a.data-b.data!==0)return a.data-b.data;return a.tipo==='extra'?-1:1;}).filter(function(item){var key=item.iso+'|'+item.turno+'|'+item.horario+'|'+item.tipo;if(vistos[key])return false;vistos[key]=true;return true;}).slice(0,4);
+  AGENDA_OPCOES=itens;
   if(!itens.length){el.innerHTML='<div class="agenda-item"><div><div class="agenda-data">Agenda em atualização</div><div class="agenda-meta">Consulte a disponibilidade pelo WhatsApp.</div></div></div>';return;}
-  var prox=itens.filter(function(item){return item.turno!=='cancelado';})[0]||itens[0];
-  if(prox){
-    PROX_DATA=prox.iso;TURNO=prox.turno;HORARIO=prox.horario;
-    var info=document.getElementById('disp-info-dinamico'),sub=document.getElementById('disp-sub-dinamico'),box=document.getElementById('ubox-bot-dinamico');
-    if(info)info.textContent=fmtLonga(prox.data);
-    if(sub)sub.textContent=(turnoNome[prox.turno]||prox.turno)+' · '+prox.horario+(prox.tipo==='extra'?' · adicional':'');
-    if(box)box.textContent='📅 '+fmtLonga(prox.data)+' · '+(turnoNome[prox.turno]||prox.turno)+' · '+prox.horario+(prox.tipo==='extra'?' · adicional':'');
-  }
-  el.innerHTML=itens.map(function(item){var tag=item.tipo==='extra'?'Adicional':'Habitual';var meta=(turnoNome[item.turno]||item.turno)+' · '+item.horario+(item.obs?' · '+item.obs:'');return '<div class="agenda-item"><div><div class="agenda-data">'+fmtCurta(item.data)+'</div><div class="agenda-meta">'+meta+'</div></div><span class="agenda-tag '+(item.tipo==='extra'?'extra':'')+'">'+tag+'</span></div>';}).join('');
+  el.innerHTML=itens.map(function(item,idx){var tag=item.tipo==='extra'?'Adicional':'Habitual';var meta=agendaTurnoNome(item.turno)+' · '+item.horario+(item.obs?' · '+item.obs:'');return '<button type="button" class="agenda-item" onclick="selecionarAgenda('+idx+',true)"><div><div class="agenda-data">'+fmtAgendaCurta(item.data)+'</div><div class="agenda-meta">'+meta+'</div></div><span class="agenda-tag '+(item.tipo==='extra'?'extra':'')+'">'+tag+'</span></button>';}).join('');
+  var padrao=itens.findIndex(function(item){return item.turno!=='cancelado';}); selecionarAgenda(padrao<0?0:padrao,false);
 }
 renderAgendaSequencia();verificarHorario();</script>
 
@@ -432,8 +415,9 @@ function atualizarLinkFicha() {
   var nome = document.getElementById('nome-input') ? document.getElementById('nome-input').value : '';
   var wpp  = document.getElementById('wpp-input')  ? document.getElementById('wpp-input').value  : '';
   var url = 'https://jaboatao.pneumologia-pe.com.br/pre-atendimento';
-  if (nome) url += '&nome=' + encodeURIComponent(nome);
-  if (wpp)  url += '&whatsapp=' + encodeURIComponent(wpp);
+  var sep = url.indexOf('?') >= 0 ? '&' : '?';
+  if (nome) { url += sep + 'nome=' + encodeURIComponent(nome); sep = '&'; }
+  if (wpp)  { url += sep + 'whatsapp=' + encodeURIComponent(wpp); }
   btn.href = url;
 }
 // Observa campos do formulário de agendamento
