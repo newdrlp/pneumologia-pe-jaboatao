@@ -216,6 +216,8 @@ body {
 .field input[type=text],
 .field input[type=tel],
 .field input[type=date],
+.field input[type=email],
+.field select,
 .field textarea {
   width: 100%;
   padding: 10px 12px;
@@ -230,6 +232,7 @@ body {
   -webkit-appearance: none;
 }
 .field input:focus,
+.field select:focus,
 .field textarea:focus {
   border-color: var(--verde-muted);
   box-shadow: 0 0 0 3px rgba(46,143,100,.1);
@@ -281,6 +284,31 @@ body {
 
 #outros-wrap { display: none; margin-top: 8px; }
 #outros-wrap.on { display: flex; flex-direction: column; gap: 5px; }
+
+.subcard {
+  display: none;
+  margin-top: 12px;
+  padding: 14px;
+  border: 2px solid #d3ded7;
+  border-radius: 12px;
+  background: #f7faf8;
+}
+.subcard.on {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.calc-note {
+  display: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #e7f5ed;
+  color: var(--verde-escuro);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+.calc-note.on { display: block; }
 
 /* ── RADIO ───────────────────────────────────────────── */
 .radio-stack { display: flex; flex-direction: column; gap: 7px; margin-top: 4px; }
@@ -443,14 +471,222 @@ body {
   .header h1 { font-size: 21px; }
 }
 
+/* Camada de leitura reforçada para pacientes em celular */
+body {
+  font-size: 17px;
+  line-height: 1.62;
+  background: #eef3ef;
+}
+.header {
+  padding: 30px 22px 26px;
+}
+.clinica-tag {
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(255,255,255,.16);
+  border-color: rgba(255,255,255,.28);
+}
+.header h1 {
+  font-size: 28px;
+  line-height: 1.18;
+  margin-bottom: 10px;
+}
+.header-sub {
+  font-size: 16px;
+  color: rgba(255,255,255,.88);
+  max-width: 460px;
+}
+.prog-wrap {
+  height: 4px;
+}
+.wrap {
+  max-width: 620px;
+  padding: 26px 14px 72px;
+}
+.section {
+  margin-bottom: 26px;
+}
+.section-title {
+  font-size: 13px;
+  letter-spacing: 1.4px;
+  color: var(--verde-escuro);
+  margin-bottom: 12px;
+}
+.card {
+  border-radius: 12px;
+  padding: 20px 18px;
+  gap: 18px;
+  box-shadow: 0 2px 12px rgba(19,63,44,.08), 0 0 0 1.5px #d3ded7;
+}
+.field {
+  gap: 8px;
+}
+.field > label {
+  font-size: 16px;
+  font-weight: 800;
+  color: #14231c;
+}
+.field > label .req {
+  color: #b83232;
+  font-weight: 800;
+}
+.field .hint {
+  font-size: 15px;
+  color: #43594e;
+  line-height: 1.48;
+}
+.field input[type=text],
+.field input[type=tel],
+.field input[type=date],
+.field input[type=email],
+.field select,
+.field textarea {
+  min-height: 50px;
+  padding: 14px 14px;
+  border: 2px solid #b9c9c0;
+  border-radius: 10px;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #111c17;
+}
+.field select {
+  background: #fff;
+  appearance: auto;
+  -webkit-appearance: menulist;
+}
+.field textarea {
+  min-height: 112px;
+}
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #5f756b;
+  opacity: 1;
+  font-weight: 500;
+}
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--verde);
+  box-shadow: 0 0 0 4px rgba(31,110,74,.16);
+}
+.field-pre {
+  padding: 14px;
+  border-width: 2px;
+}
+.field-pre-label {
+  font-size: 12px;
+  color: var(--verde-escuro);
+}
+.field-pre-val {
+  font-size: 16px;
+  font-weight: 700;
+  white-space: normal;
+}
+.field-pre-lock {
+  font-size: 13px;
+  opacity: .85;
+}
+.cb-grid {
+  gap: 10px;
+}
+.cb-item,
+.rb-item {
+  min-height: 48px;
+  padding: 13px 14px;
+  border: 2px solid #bfcec6;
+  border-radius: 10px;
+  background: #fff;
+}
+.cb-item input[type=checkbox],
+.rb-item input[type=radio] {
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+}
+.cb-item span,
+.rb-item span {
+  font-size: 16px;
+  line-height: 1.35;
+  color: #17261f;
+  font-weight: 600;
+}
+.cb-item:has(input:checked),
+.rb-item:has(input:checked) {
+  border-color: var(--verde);
+  background: #e7f5ed;
+  box-shadow: 0 0 0 3px rgba(31,110,74,.12);
+}
+.btn-submit {
+  min-height: 58px;
+  padding: 17px 18px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 800;
+  background: #17633f;
+  box-shadow: 0 8px 22px rgba(23,99,63,.24);
+}
+.btn-submit:hover {
+  background: #0f4e30;
+}
+.btn-voz {
+  min-height: 44px;
+  font-size: 15px;
+  font-weight: 800;
+}
+.err-msg {
+  font-size: 14px;
+  font-weight: 700;
+}
+.lgpd-note {
+  font-size: 13px;
+  color: #4c6257;
+}
+.cfm-footer {
+  border-width: 2px;
+}
+.cfm-nome {
+  font-size: 17px;
+}
+.cfm-crm,
+.cfm-esp,
+.cfm-rqe {
+  font-size: 14px;
+}
+.sucesso h2 {
+  font-size: 26px;
+}
+.sucesso p {
+  font-size: 17px;
+  color: #2e4037;
+}
+@media (max-width: 430px) {
+  body { font-size: 17px; }
+  .header { padding: 26px 18px 24px; }
+  .header h1 { font-size: 25px; }
+  .header-sub { font-size: 15.5px; }
+  .wrap { padding: 22px 12px 64px; }
+  .card { padding: 18px 14px; }
+  .two { grid-template-columns: 1fr; }
+  .cb-grid { grid-template-columns: 1fr; }
+  .field input[type=text],
+  .field input[type=tel],
+  .field input[type=date],
+  .field input[type=email],
+  .field select,
+  .field textarea {
+    font-size: 18px;
+    min-height: 54px;
+  }
+}
+
 .voz-wrap{position:relative;}
 .btn-voz{
   display:none; /* mostrado via JS apenas se suportado */
   align-items:center;gap:6px;
-  padding:8px 14px;border-radius:8px;
+  min-height:44px;padding:10px 15px;border-radius:10px;
   background:var(--verde-bg);border:1.5px solid var(--verde-border);
   color:var(--verde);font-family:'Source Sans 3',sans-serif;
-  font-size:13px;font-weight:600;cursor:pointer;
+  font-size:15px;font-weight:800;cursor:pointer;
   margin-top:6px;transition:all 0.2s;
 }
 .btn-voz:hover{background:var(--verde-border);}
@@ -610,20 +846,74 @@ body {
     </div>
   </div>
 
-  <!-- 4. TABAGISMO -->
+  <!-- 4. EXPOSIÇÕES AMBIENTAIS -->
   <div class="section">
     <div class="section-title">Exposições ambientais</div>
     <div class="card">
       <div class="field">
-        <label>Já fumou ou fuma atualmente?</label>
-        <div class="radio-stack">
-          <label class="rb-item"><input type="radio" name="tabagismo" value="Nunca fumei"><span>Nunca fumei</span></label>
-          <label class="rb-item"><input type="radio" name="tabagismo" value="Tabagismo passivo (convivo com fumante)"><span>Convivo com fumante (tabagismo passivo)</span></label>
-          <label class="rb-item"><input type="radio" name="tabagismo" value="Ex-tabagista"><span>Sou ex-tabagista</span></label>
-          <label class="rb-item"><input type="radio" name="tabagismo" value="Fumante atual"><span>Sou fumante atual</span></label>
-            <label class="rb-item"><input type="radio" name="tabagismo" value="Exposição à fumaça de lenha ou poluentes no trabalho"><span>Exposição à fumaça de lenha ou poluentes no trabalho</span></label>
+        <label>Você fuma ou já fumou?</label>
+        <p class="hint">Escolha uma opção sobre o seu próprio uso de tabaco.</p>
+        <div class="radio-stack" id="tabagismo-status">
+          <label class="rb-item"><input type="radio" name="tabagismo_status" id="tab_nunca" value="Nunca fumei"><span>Nunca fumei</span></label>
+          <label class="rb-item"><input type="radio" name="tabagismo_status" id="tab_ex" value="Ex-tabagista"><span>Sou ex-tabagista</span></label>
+          <label class="rb-item"><input type="radio" name="tabagismo_status" id="tab_atual" value="Fumante atual"><span>Fumo atualmente</span></label>
         </div>
       </div>
+
+      <div class="subcard" id="tabagismo-detalhes">
+        <div class="field">
+          <label for="tab_tipo">Tipo principal de exposição ao tabaco</label>
+          <select id="tab_tipo" name="tab_tipo">
+            <option value="">Selecione, se souber</option>
+            <option value="Cigarro comum">Cigarro comum</option>
+            <option value="Cigarro de palha / fumo de corda">Cigarro de palha / fumo de corda</option>
+            <option value="Cachimbo">Cachimbo</option>
+            <option value="Charuto">Charuto</option>
+            <option value="Vape / cigarro eletrônico">Vape / cigarro eletrônico</option>
+            <option value="Narguilé">Narguilé</option>
+            <option value="Outro">Outro</option>
+          </select>
+        </div>
+        <div class="two">
+          <div class="field">
+            <label for="tab_inicio">Começou com quantos anos?</label>
+            <input type="text" id="tab_inicio" name="tab_inicio" inputmode="numeric" placeholder="Ex: 18">
+          </div>
+          <div class="field" id="tab_parou_wrap">
+            <label for="tab_parou">Se parou, parou com quantos anos?</label>
+            <input type="text" id="tab_parou" name="tab_parou" inputmode="numeric" placeholder="Ex: 42">
+          </div>
+        </div>
+        <div class="field" id="tab_cigarros_wrap">
+          <label for="tab_cigarros">Em média, quantos cigarros por dia?</label>
+          <input type="text" id="tab_cigarros" name="tab_cigarros" inputmode="numeric" placeholder="Ex: 20">
+          <p class="hint">Esse campo permite estimar a carga tabágica em maços-ano quando for cigarro comum.</p>
+        </div>
+        <div class="calc-note" id="tab_carga_calc"></div>
+      </div>
+
+      <div class="field">
+        <label>Outras exposições respiratórias</label>
+        <p class="hint">Selecione todas as opções que se aplicam, mesmo que você nunca tenha fumado.</p>
+        <div class="cb-grid" style="margin-top:6px">
+          <label class="cb-item"><input type="checkbox" name="exposicoes_ambientais" value="Convivo ou convivi com fumante"><span>Convivo ou convivi com fumante</span></label>
+          <label class="cb-item"><input type="checkbox" name="exposicoes_ambientais" value="Fumaça de fogão a lenha"><span>Fumaça de fogão a lenha</span></label>
+          <label class="cb-item"><input type="checkbox" name="exposicoes_ambientais" value="Poeira, mofo ou umidade"><span>Poeira, mofo ou umidade</span></label>
+          <label class="cb-item"><input type="checkbox" name="exposicoes_ambientais" value="Produtos químicos, tintas, solventes ou limpeza"><span>Produtos químicos ou limpeza</span></label>
+          <label class="cb-item"><input type="checkbox" name="exposicoes_ambientais" value="Poluentes no trabalho"><span>Poluentes no trabalho</span></label>
+          <label class="cb-item"><input type="checkbox" name="exposicoes_ambientais" value="Aves, penas ou criação de animais"><span>Aves, penas ou criação de animais</span></label>
+          <label class="cb-item"><input type="checkbox" name="exposicoes_ambientais" value="Outra exposição"><span>Outra exposição</span></label>
+        </div>
+      </div>
+
+      <div class="subcard" id="expo-detalhes">
+        <div class="field">
+          <label for="expo_tempo">Tempo e intensidade da exposição</label>
+          <textarea id="expo_tempo" name="expo_tempo" rows="3" placeholder="Ex: fogão a lenha na infância por cerca de 10 anos; poeira no trabalho diariamente…"></textarea>
+        </div>
+      </div>
+
+      <input type="hidden" id="tabagismo-valor">
     </div>
   </div>
 
@@ -817,9 +1107,139 @@ function validar() {
   return ok;
 }
 
+// ── TABAGISMO E EXPOSIÇÕES ───────────────────────────────────────────
+function numCampo(id) {
+  const v = (document.getElementById(id)?.value || '').replace(',', '.').trim();
+  const n = parseFloat(v);
+  return Number.isFinite(n) ? n : null;
+}
+
+function valorCampo(id) {
+  return (document.getElementById(id)?.value || '').trim();
+}
+
+function idadeAtualPelaDataNascimento() {
+  const raw = valorCampo('nasc');
+  const m = raw.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  if (!m) return null;
+  const dia = parseInt(m[1], 10);
+  const mes = parseInt(m[2], 10) - 1;
+  const ano = parseInt(m[3], 10);
+  const nasc = new Date(ano, mes, dia);
+  if (Number.isNaN(nasc.getTime())) return null;
+  const hoje = new Date();
+  let idade = hoje.getFullYear() - nasc.getFullYear();
+  const antesAniversario = hoje.getMonth() < mes || (hoje.getMonth() === mes && hoje.getDate() < dia);
+  if (antesAniversario) idade--;
+  return idade > 0 && idade < 120 ? idade : null;
+}
+
+function exposicoesSelecionadas() {
+  return [...document.querySelectorAll('input[name=exposicoes_ambientais]:checked')].map(c => c.value);
+}
+
+function calcularCargaTabagica() {
+  const status = document.querySelector('input[name=tabagismo_status]:checked')?.value || '';
+  const tipo = valorCampo('tab_tipo');
+  const inicio = numCampo('tab_inicio');
+  const parou = numCampo('tab_parou');
+  const cigarros = numCampo('tab_cigarros');
+  let anos = null;
+
+  if (status === 'Ex-tabagista' && inicio !== null && parou !== null && parou > inicio) {
+    anos = parou - inicio;
+  }
+  if (status === 'Fumante atual' && inicio !== null) {
+    const idade = idadeAtualPelaDataNascimento();
+    if (idade !== null && idade > inicio) anos = idade - inicio;
+  }
+
+  if (tipo === 'Cigarro comum' && anos !== null && cigarros !== null && cigarros > 0) {
+    return {
+      anos,
+      carga: Math.round(((cigarros / 20) * anos) * 10) / 10
+    };
+  }
+  return { anos, carga: null };
+}
+
+function montarResumoTabagismo() {
+  const status = document.querySelector('input[name=tabagismo_status]:checked')?.value || '';
+  const tipo = valorCampo('tab_tipo');
+  const inicio = valorCampo('tab_inicio');
+  const parou = valorCampo('tab_parou');
+  const cigarros = valorCampo('tab_cigarros');
+  const exposicoes = exposicoesSelecionadas();
+  const expoTempo = valorCampo('expo_tempo');
+  const calc = calcularCargaTabagica();
+  const partes = [];
+
+  if (status) partes.push('Tabagismo: ' + status);
+  if (status && status !== 'Nunca fumei') {
+    if (tipo) partes.push('Tipo: ' + tipo);
+    if (inicio) partes.push('Início: ' + inicio + ' anos');
+    if (status === 'Ex-tabagista' && parou) partes.push('Parou: ' + parou + ' anos');
+    if (tipo === 'Cigarro comum' && cigarros) partes.push('Média: ' + cigarros + ' cigarros/dia');
+    if (calc.carga !== null) partes.push('Carga estimada: ' + calc.carga + ' maços-ano');
+  }
+  if (exposicoes.length) partes.push('Exposições ambientais: ' + exposicoes.join('; '));
+  if (expoTempo) partes.push('Tempo/intensidade das exposições: ' + expoTempo);
+
+  return partes.join('. ');
+}
+
+function atualizarBlocoExposicoes() {
+  const status = document.querySelector('input[name=tabagismo_status]:checked')?.value || '';
+  const tipo = valorCampo('tab_tipo');
+  const detalhesTab = document.getElementById('tabagismo-detalhes');
+  const parouWrap = document.getElementById('tab_parou_wrap');
+  const cigarrosWrap = document.getElementById('tab_cigarros_wrap');
+  const expoDetalhes = document.getElementById('expo-detalhes');
+  const calcEl = document.getElementById('tab_carga_calc');
+  const hidden = document.getElementById('tabagismo-valor');
+
+  if (detalhesTab) detalhesTab.classList.toggle('on', status === 'Ex-tabagista' || status === 'Fumante atual');
+  if (parouWrap) parouWrap.style.display = status === 'Ex-tabagista' ? 'flex' : 'none';
+  if (cigarrosWrap) cigarrosWrap.style.display = tipo === 'Cigarro comum' ? 'flex' : 'none';
+  if (expoDetalhes) expoDetalhes.classList.toggle('on', exposicoesSelecionadas().length > 0);
+
+  const calc = calcularCargaTabagica();
+  if (calcEl) {
+    if (calc.carga !== null) {
+      calcEl.textContent = 'Carga tabágica estimada: ' + calc.carga + ' maços-ano.';
+      calcEl.classList.add('on');
+    } else {
+      calcEl.textContent = '';
+      calcEl.classList.remove('on');
+    }
+  }
+  if (hidden) hidden.value = montarResumoTabagismo();
+}
+
+document.addEventListener('change', function(e) {
+  if (!e.target) return;
+  if (
+    e.target.name === 'tabagismo_status' ||
+    e.target.name === 'exposicoes_ambientais' ||
+    e.target.id === 'tab_tipo'
+  ) atualizarBlocoExposicoes();
+});
+
+document.addEventListener('input', function(e) {
+  if (!e.target) return;
+  if (['nasc','tab_inicio','tab_parou','tab_cigarros','expo_tempo'].indexOf(e.target.id) !== -1) {
+    atualizarBlocoExposicoes();
+  }
+});
+
+atualizarBlocoExposicoes();
+
 // ── COLETA ────────────────────────────────────────────────────────────
 function coletar() {
   const ant = [...document.querySelectorAll('input[name=antecedentes]:checked')].map(c => c.value).join(', ');
+  const exposicoes = exposicoesSelecionadas().join(', ');
+  const statusTabagismo = document.querySelector('input[name=tabagismo_status]:checked')?.value || '';
+  const resumoTabagismo = montarResumoTabagismo();
   return {
     timestamp:           new Date().toLocaleString('pt-BR'),
     nome:                document.getElementById('nome').value.trim(),
@@ -831,7 +1251,14 @@ function coletar() {
     queixa_secundaria:   document.getElementById('qs').value.trim(),
     antecedentes:        ant,
     outros_antecedentes: document.getElementById('outros-txt').value.trim(),
-    tabagismo:           document.querySelector('input[name=tabagismo]:checked')?.value || '',
+    tabagismo:           resumoTabagismo,
+    tabagismo_status:    statusTabagismo,
+    tabagismo_tipo:      valorCampo('tab_tipo'),
+    tabagismo_inicio:    valorCampo('tab_inicio'),
+    tabagismo_parou:     valorCampo('tab_parou'),
+    tabagismo_cigarros:  valorCampo('tab_cigarros'),
+    exposicoes_ambientais: exposicoes,
+    exposicoes_detalhes: valorCampo('expo_tempo'),
     medicacoes:          document.getElementById('med').value.trim(),
     alergias:            document.getElementById('alg').value.trim(),
     autorizacao:         document.querySelector('input[name=autorizacao]:checked')?.value || '',
@@ -873,45 +1300,6 @@ document.getElementById('form').addEventListener('submit', async function (e) {
   }
 });
 </script>
-
-<script>
-// ── LÓGICA DE EXCLUSÃO MÚTUA — TABAGISMO ────────────────────────
-var EXCLUSIVOS = ['tab_nunca', 'tab_ex', 'tab_atual'];
-
-function handleTabagismo(el) {
-  if (!el.checked) { atualizarTabagismoValor(); return; }
-  // Se marcou um exclusivo, desmarca os outros exclusivos
-  if (EXCLUSIVOS.indexOf(el.id) !== -1) {
-    EXCLUSIVOS.forEach(function(id) {
-      if (id !== el.id) {
-        var o = document.getElementById(id);
-        if (o) o.checked = false;
-      }
-    });
-  }
-  atualizarTabagismoValor();
-}
-
-// Atualiza campo hidden com todas as seleções concatenadas
-function atualizarTabagismoValor() {
-  var campos = ['tab_nunca','tab_ex','tab_atual','tab_passivo','tab_lenha'];
-  var selecionados = campos
-    .map(function(id){ return document.getElementById(id); })
-    .filter(function(el){ return el && el.checked; })
-    .map(function(el){ return el.value; });
-  
-  var hidden = document.getElementById('tabagismo-valor');
-  if (hidden) hidden.value = selecionados.join(' + ');
-}
-
-// Garante que o campo hidden seja enviado corretamente
-document.addEventListener('change', function(e) {
-  if (e.target && e.target.name && e.target.name.indexOf('tab_') === 0) {
-    atualizarTabagismoValor();
-  }
-});
-</script>
-
 
 <script>
 // ── TRANSCRIÇÃO POR VOZ ──────────────────────────────────────────
