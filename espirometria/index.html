@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#0f2236;--steel:#1e3a52;--sky:#4a90b8;--ice:#e8f4f8;--soft:#f5f8fa;--text:#1a2e3d;--muted:#6b8a9a;--accent:#2e7da6;--green:#25D366;--border:#d0e4ef;}
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:'DM Sans',sans-serif;background:var(--soft);color:var(--text);font-size:16px;line-height:1.55}.hero{background:linear-gradient(160deg,var(--navy),var(--steel));color:white;text-align:center;padding:34px 20px 30px}.doctor{font-size:14px;color:rgba(255,255,255,.76);margin-bottom:12px}h1{font-family:'Cormorant Garamond',serif;font-size:2.25rem;font-weight:500;line-height:1.12}.hero p{margin-top:10px;color:rgba(255,255,255,.78)}main{max-width:680px;margin:0 auto;padding:28px 18px 44px}section{background:white;border:1px solid var(--border);border-radius:14px;padding:22px 20px;margin-bottom:16px}.label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:800;margin-bottom:6px}h2{font-family:'Cormorant Garamond',serif;color:var(--navy);font-size:1.65rem;font-weight:500;margin-bottom:14px}.list{display:grid;gap:10px}.item{border:1px solid var(--border);border-radius:12px;padding:13px 14px;background:#fbfdfe}.item strong{display:block;color:var(--navy);margin-bottom:3px;font-weight:800}.item.warn{background:#fff8e1;border-color:#ffe082}.item.ok{background:var(--ice);border-color:#a8d4ea}.small{color:var(--muted);font-size:14px;margin-top:12px}.actions{display:grid;gap:10px;margin-top:18px}.btn{display:flex;justify-content:center;align-items:center;text-decoration:none;border-radius:999px;padding:14px 16px;font-weight:800}.btn.primary{background:var(--accent);color:white}.btn.wa{background:var(--green);color:white}.audio-card{background:linear-gradient(135deg,#eef8fb,#fff);border-color:#b7d7e5}.audio-toggle{width:100%;border:1.5px solid #7fb8d0;background:#f7fcff;color:var(--navy);border-radius:999px;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;display:flex;justify-content:center;align-items:center;gap:8px;box-shadow:0 2px 10px rgba(15,34,54,.08)}.audio-toggle:hover{background:#e8f4f8}.audio-toggle.playing{background:var(--accent);border-color:var(--accent);color:white}.audio-hint{color:var(--muted);font-size:14px;margin-top:10px;text-align:center}footer{text-align:center;color:var(--muted);font-size:13px;padding:0 18px 28px}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'DM Sans',sans-serif;background:var(--soft);color:var(--text);font-size:17px;line-height:1.55}.hero{background:linear-gradient(160deg,var(--navy),var(--steel));color:white;text-align:center;padding:34px 20px 30px}.doctor{font-size:14px;color:rgba(255,255,255,.76);margin-bottom:12px}h1{font-family:'Cormorant Garamond',serif;font-size:2.25rem;font-weight:500;line-height:1.12}.hero p{margin-top:10px;color:rgba(255,255,255,.78)}main{max-width:680px;margin:0 auto;padding:28px 18px 44px}section{background:white;border:1px solid var(--border);border-radius:14px;padding:22px 20px;margin-bottom:16px}.label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:800;margin-bottom:6px}h2{font-family:'Cormorant Garamond',serif;color:var(--navy);font-size:1.65rem;font-weight:500;margin-bottom:14px}.list{display:grid;gap:10px}.item{border:1px solid var(--border);border-radius:12px;padding:15px 15px;background:#fbfdfe}.item strong{display:block;color:var(--navy);margin-bottom:3px;font-weight:800}.item.warn{background:#fff8e1;border-color:#ffe082}.item.ok{background:var(--ice);border-color:#a8d4ea}.small{color:var(--muted);font-size:15px;margin-top:12px}.actions{display:grid;gap:10px;margin-top:18px}.btn{display:flex;justify-content:center;align-items:center;text-decoration:none;border-radius:999px;padding:14px 16px;font-weight:800}.btn.primary{background:var(--accent);color:white}.btn.wa{background:var(--green);color:white}.audio-card{background:linear-gradient(135deg,#eef8fb,#fff);border-color:#9fcadc;padding:24px 20px}.audio-card .label{font-size:12px}.audio-title{font-size:1.78rem;margin-bottom:12px}.audio-card audio{width:100%;display:block;margin:8px 0 12px}.audio-tools{display:grid;grid-template-columns:1fr 1fr;gap:10px}.audio-tools button{border:1.5px solid #7fb8d0;background:#f7fcff;color:var(--navy);border-radius:999px;padding:12px 14px;font-family:'DM Sans',sans-serif;font-size:1.02rem;font-weight:800;cursor:pointer}.audio-tools button:hover{background:#e8f4f8}.audio-hint{color:var(--muted);font-size:15px;margin-top:10px;text-align:center}footer{text-align:center;color:var(--muted);font-size:13px;padding:0 18px 28px}
 </style>
 </head>
 <body>
@@ -17,27 +17,27 @@
   <p>Orientações rápidas para o exame do sopro em Jaboatão.</p>
 </section>
 <main>
+  <section class="audio-card">
+    <div class="label">Áudio</div>
+    <h2 class="audio-title">&#9654; Ouvir orientações de preparo</h2>
+    <audio id="audio-preparo" controls preload="metadata" src="preparo-espirometria.mp3"></audio>
+    <div class="audio-tools" aria-label="Controles rápidos do áudio">
+      <button type="button" onclick="seekAudioPrep(-10)">Voltar 10s</button>
+      <button type="button" onclick="seekAudioPrep(10)">Avançar 10s</button>
+    </div>
+    <p class="audio-hint">Resumo em áudio dos cuidados antes do exame.</p>
+  </section>
   <section>
     <div class="label">Antes do exame</div>
     <h2>Cuidados simples</h2>
     <div class="list">
-      <div class="item ok"><strong>Não é necessário jejum.</strong>Prefira alimentação leve antes do exame.</div>
-      <div class="item"><strong>Evite café, chá preto, chocolate, refrigerante de cola e energéticos.</strong>Idealmente nas 6 horas anteriores.</div>
-      <div class="item"><strong>Evite bebida alcoólica.</strong>Nas 4 horas anteriores.</div>
-      <div class="item"><strong>Evite exercício físico forte.</strong>No período antes do exame.</div>
-      <div class="item"><strong>Use roupa confortável.</strong>Evite peças apertadas no tórax ou abdome.</div>
+      <div class="item ok"><strong>Não é necessário jejum.</strong>Prefira uma alimentação leve.</div>
+      <div class="item"><strong>Evite exercício físico acentuado.</strong>Evite esforço forte antes do exame.</div>
+      <div class="item"><strong>Use roupa confortável.</strong>Prefira peças que não apertem o tórax ou o abdome.</div>
+      <div class="item"><strong>Leve ou fotografe o que usa.</strong>Se usa bombinha, aerossol, pó inalado, cápsula para inalação, nebulização ou outro tratamento respiratório, mostre à equipe.</div>
     </div>
   </section>
-      <section class="audio-card">
-    <div class="label">Áudio</div>
-    <h2>Ouça as orientações</h2>
-    <button type="button" class="audio-toggle" onclick="toggleAudioPrep(this)" aria-controls="audio-preparo" aria-label="Ouvir orientações de preparo para espirometria">
-      Ouvir orientações de preparo
-    </button>
-    <audio id="audio-preparo" preload="none" src="preparo-espirometria.mp3"></audio>
-    <p class="audio-hint">O áudio é opcional e resume os cuidados antes do exame.</p>
-  </section>
-  <section>
+<section>
     <div class="label">Tratamentos respiratórios</div>
     <h2>Bombinhas, aerossóis, pó inalado e cápsulas podem interferir</h2>
     <div class="list">
@@ -59,5 +59,15 @@
   </section>
 </main>
 <footer>Dr. Lucas Pereira de Souza · Pneumologista · CRM-PE 9777 · RQE 9868</footer>
+<script>
+function seekAudioPrep(seconds) {
+  var audio = document.getElementById("audio-preparo");
+  if (!audio) return;
+  var next = audio.currentTime + seconds;
+  if (next < 0) next = 0;
+  if (audio.duration && next > audio.duration) next = audio.duration;
+  audio.currentTime = next;
+}
+</script>
 </body>
 </html>
