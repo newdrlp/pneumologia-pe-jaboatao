@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--navy:#0f2236;--steel:#1e3a52;--sky:#4a90b8;--ice:#e8f4f8;--soft:#f5f8fa;--text:#1a2e3d;--muted:#6b8a9a;--accent:#2e7da6;--green:#25D366;--border:#d0e4ef;}
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:'DM Sans',sans-serif;background:var(--soft);color:var(--text);font-size:16px;line-height:1.55}.hero{background:linear-gradient(160deg,var(--navy),var(--steel));color:white;text-align:center;padding:34px 20px 30px}.doctor{font-size:14px;color:rgba(255,255,255,.76);margin-bottom:12px}h1{font-family:'Cormorant Garamond',serif;font-size:2.25rem;font-weight:500;line-height:1.12}.hero p{margin-top:10px;color:rgba(255,255,255,.78)}main{max-width:680px;margin:0 auto;padding:28px 18px 44px}section{background:white;border:1px solid var(--border);border-radius:14px;padding:22px 20px;margin-bottom:16px}.label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:800;margin-bottom:6px}h2{font-family:'Cormorant Garamond',serif;color:var(--navy);font-size:1.65rem;font-weight:500;margin-bottom:14px}.list{display:grid;gap:10px}.item{border:1px solid var(--border);border-radius:12px;padding:13px 14px;background:#fbfdfe}.item strong{display:block;color:var(--navy);margin-bottom:3px;font-weight:800}.item.warn{background:#fff8e1;border-color:#ffe082}.item.ok{background:var(--ice);border-color:#a8d4ea}.small{color:var(--muted);font-size:14px;margin-top:12px}.actions{display:grid;gap:10px;margin-top:18px}.btn{display:flex;justify-content:center;align-items:center;text-decoration:none;border-radius:999px;padding:14px 16px;font-weight:800}.btn.primary{background:var(--accent);color:white}.btn.wa{background:var(--green);color:white}footer{text-align:center;color:var(--muted);font-size:13px;padding:0 18px 28px}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'DM Sans',sans-serif;background:var(--soft);color:var(--text);font-size:16px;line-height:1.55}.hero{background:linear-gradient(160deg,var(--navy),var(--steel));color:white;text-align:center;padding:34px 20px 30px}.doctor{font-size:14px;color:rgba(255,255,255,.76);margin-bottom:12px}h1{font-family:'Cormorant Garamond',serif;font-size:2.25rem;font-weight:500;line-height:1.12}.hero p{margin-top:10px;color:rgba(255,255,255,.78)}main{max-width:680px;margin:0 auto;padding:28px 18px 44px}section{background:white;border:1px solid var(--border);border-radius:14px;padding:22px 20px;margin-bottom:16px}.label{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:800;margin-bottom:6px}h2{font-family:'Cormorant Garamond',serif;color:var(--navy);font-size:1.65rem;font-weight:500;margin-bottom:14px}.list{display:grid;gap:10px}.item{border:1px solid var(--border);border-radius:12px;padding:13px 14px;background:#fbfdfe}.item strong{display:block;color:var(--navy);margin-bottom:3px;font-weight:800}.item.warn{background:#fff8e1;border-color:#ffe082}.item.ok{background:var(--ice);border-color:#a8d4ea}.small{color:var(--muted);font-size:14px;margin-top:12px}.actions{display:grid;gap:10px;margin-top:18px}.btn{display:flex;justify-content:center;align-items:center;text-decoration:none;border-radius:999px;padding:14px 16px;font-weight:800}.btn.primary{background:var(--accent);color:white}.btn.wa{background:var(--green);color:white}.audio-card{background:linear-gradient(135deg,#eef8fb,#fff);border-color:#b7d7e5}.audio-toggle{width:100%;border:1.5px solid #7fb8d0;background:#f7fcff;color:var(--navy);border-radius:999px;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;display:flex;justify-content:center;align-items:center;gap:8px;box-shadow:0 2px 10px rgba(15,34,54,.08)}.audio-toggle:hover{background:#e8f4f8}.audio-toggle.playing{background:var(--accent);border-color:var(--accent);color:white}.audio-hint{color:var(--muted);font-size:14px;margin-top:10px;text-align:center}footer{text-align:center;color:var(--muted);font-size:13px;padding:0 18px 28px}
 </style>
 </head>
 <body>
@@ -28,21 +28,30 @@
       <div class="item"><strong>Use roupa confortável.</strong>Evite peças apertadas no tórax ou abdome.</div>
     </div>
   </section>
+      <section class="audio-card">
+    <div class="label">Áudio</div>
+    <h2>Ouça as orientações</h2>
+    <button type="button" class="audio-toggle" onclick="toggleAudioPrep(this)" aria-controls="audio-preparo" aria-label="Ouvir orientações de preparo para espirometria">
+      Ouvir orientações de preparo
+    </button>
+    <audio id="audio-preparo" preload="none" src="preparo-espirometria.mp3"></audio>
+    <p class="audio-hint">O áudio é opcional e resume os cuidados antes do exame.</p>
+  </section>
   <section>
-    <div class="label">Medicações respiratórias</div>
-    <h2>Bombinhas e broncodilatadores podem interferir</h2>
+    <div class="label">Tratamentos respiratórios</div>
+    <h2>Bombinhas, aerossóis, pó inalado e cápsulas podem interferir</h2>
     <div class="list">
-      <div class="item warn"><strong>Use a regra do intervalo da dose.</strong>Se a medicação é de 12 em 12 horas, faça o exame após passar o horário da próxima dose. Se é de 24 em 24 horas, faça após ficar 24 horas sem usar.</div>
-      <div class="item"><strong>Exemplos comuns.</strong>Salbutamol, fenoterol, formoterol, salmeterol, indacaterol, vilanterol, olodaterol, ipratrópio, tiotrópio e combinações em spray, cápsula ou inalador.</div>
-      <div class="item"><strong>Montelucaste.</strong>Confira no rótulo se há o nome montelucaste. Em geral, evitar nas 24 horas anteriores quando a suspensão for segura.</div>
-      <div class="item ok"><strong>Não suspenda remédios de pressão, diabetes, tireoide, coração ou outros tratamentos habituais.</strong>A orientação de suspensão é voltada principalmente para medicações respiratórias que abrem os brônquios.</div>
+      <div class="item warn"><strong>Confirme antes se deve usar ou pausar.</strong>Se você usa bombinha, aerossol, pó inalado, cápsula para inalação, nebulização ou outro tratamento respiratório, fale com a equipe antes do exame para saber se deve usar normalmente ou aguardar um intervalo.</div>
+      <div class="item"><strong>Não suspenda por conta própria.</strong>A orientação depende do tipo de tratamento, do horário habitual de uso e da sua segurança clínica. Se tiver dúvida, mantenha seu cuidado habitual e avise a equipe antes de realizar o exame.</div>
+      <div class="item"><strong>Leve a lista ou foto dos produtos que usa.</strong>Se possível, leve uma foto das embalagens, bombinhas, cápsulas ou dispositivos de inalação para facilitar a orientação no dia do exame.</div>
+      <div class="item ok"><strong>Tratamentos de uso geral costumam ser mantidos.</strong>Tratamentos não respiratórios de uso contínuo geralmente não devem ser suspensos sem orientação médica.</div>
     </div>
-    <p class="small">Se estiver em crise, muito cansado, chiando, ou se tiver dúvida sobre suspender alguma medicação, fale com a equipe antes. Não coloque sua segurança em risco para fazer o exame.</p>
+    <p class="small">Se estiver em crise, muito cansado, chiando, ou se tiver dúvida sobre qualquer orientação, fale com a equipe antes. Não coloque sua segurança em risco para fazer o exame.</p>
   </section>
   <section>
     <div class="label">Dúvidas</div>
     <h2>Fale antes se não tiver certeza</h2>
-    <p>Se usa medicação respiratória contínua ou teve piora recente dos sintomas, confirme a orientação antes do exame.</p>
+    <p>Se usa tratamento respiratório contínuo ou teve piora recente dos sintomas, confirme a orientação antes do exame.</p>
     <div class="actions">
       <a class="btn primary" href="/">Voltar para Jaboatão</a>
       <a class="btn wa" href="https://api.whatsapp.com/send?phone=558198385415&text=Ol%C3%A1%2C+tenho+d%C3%BAvida+sobre+o+preparo+da+espirometria.">Tirar dúvida pelo WhatsApp</a>
