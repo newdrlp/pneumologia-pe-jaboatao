@@ -95,13 +95,17 @@ function gtag_form_conversion() {
 </script>
 <script>
 function gtag_wa_conversion(url) {
+  var navegou = false;
   var callback = function () {
+    if (navegou) return;
+    navegou = true;
     if (typeof(url) != 'undefined') { window.location = url; }
   };
   gtag('event', 'conversion', {
     'send_to': 'AW-946602849/hvBtCPaX0bgcEOGGsMMD',
     'event_callback': callback
   });
+  setTimeout(callback, 700);
   return false;
 }
 </script>
