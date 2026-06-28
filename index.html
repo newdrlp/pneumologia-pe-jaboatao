@@ -162,7 +162,7 @@ function gtag_wa_conversion(url) {
         <div class="ro" onclick="selectOpt(this,'tipo')">Primeira consulta</div>
         <div class="ro" onclick="selectOpt(this,'tipo')">Nova consulta</div>
         <div class="ro" onclick="selectOpt(this,'tipo')">Retorno</div>
-        <div class="ro" onclick="selectOpt(this,'tipo')">Exame</div>
+        <div class="ro" onclick="selectOpt(this,'tipo')">Espirometria</div>
       </div>
     </div>
     <div class="fg"><label>Período preferido</label>
@@ -238,7 +238,7 @@ function enviar(){
     document.getElementById('det').innerHTML='<strong>'+nome+'</strong>, agendamento para <strong>'+CIDADE+'</strong> registrado.<br>Próximo atendimento: <strong>'+dl+'</strong><br>'+TURNO_NOME[TURNO]+' · '+HORARIO+'<br>WhatsApp: <strong>'+wpp+'</strong>';
     var pp=document.getElementById('pp');
     if(estado.tipo==='Primeira consulta'||estado.tipo==='Nova consulta'){pp.innerHTML='<div class="pc"><div class="pci"><strong>Preencha sua ficha de pré-atendimento</strong><span style="font-size:15px;display:block;margin-top:6px" style="font-size:15px;display:block;margin-top:6px">Agora, registre suas queixas e informações adicionais de saúde, diretamente para o Dr. Lucas Pereira estar ciente ao iniciar seu atendimento.</span></div><a class="btn-p" href="https://jaboatao.pneumologia-pe.com.br/pre-atendimento" id="btn-ficha" target="_blank">Preencher ficha</a></div>';setTimeout(function(){var el=document.getElementById("btn-ficha");if(el)el.scrollIntoView({behavior:"smooth",block:"center"});},300);}
-    else if(estado.tipo==='Exame')pp.innerHTML='<div class="pc"><div class="pci"><strong>Preparo para Espirometria</strong><span>Saiba quais medicamentos suspender e como se preparar.</span></div><a class="btn-p" href="#" target="_blank">Ver orientações</a></div>';
+    else if(estado.tipo==='Exame'||estado.tipo==='Espirometria'){pp.innerHTML='<div class="pc"><div class="pci"><strong>Preparo para Espirometria</strong><span>Você será direcionado às orientações de preparo do exame.</span></div><a class="btn-p" href="/espirometria/">Ver orientações agora</a></div>';setTimeout(function(){window.location.href='/espirometria/';},3000);}
     document.getElementById('sucesso').style.display='block';window.scrollTo({top:0,behavior:'smooth'});
   }).catch(function(){btn.disabled=false;btn.textContent='Registrar meu agendamento';alert("Erro ao enviar. Tente novamente.");});
 }
