@@ -778,7 +778,7 @@ body {
       <div class="two">
         <div class="field">
           <label for="nasc">Data de nascimento <span class="req">*</span></label>
-          <input type="text" id="nasc" name="data_nascimento" placeholder="DD/MM/AAAA" maxlength="10" inputmode="numeric">
+          <input type="text" id="nasc" name="data_nascimento" placeholder="DD/MM/AAAA" maxlength="10" inputmode="numeric" oninput="mascaraDN(this)">
           <span class="err-msg" id="e-nasc">Informe sua data de nascimento.</span>
         </div>
         <div class="field">
@@ -1118,6 +1118,7 @@ function valorCampo(id) {
   return (document.getElementById(id)?.value || '').trim();
 }
 
+function mascaraDN(el){ var v = el.value.replace(/\D/g,''); if (v.length >= 3) v = v.slice(0,2)+'/'+v.slice(2); if (v.length >= 6) v = v.slice(0,5)+'/'+v.slice(5,9); el.value = v; }
 function idadeAtualPelaDataNascimento() {
   const raw = valorCampo('nasc');
   const m = raw.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
