@@ -702,6 +702,19 @@ body {
 .voz-status.visivel{display:block;}
 
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-946602849"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-946602849');
+</script>
+<script>
+function gtag_form_conversion() {
+  gtag('event', 'conversion', {'send_to': 'AW-946602849/AhBBCK64urgcEOGGsMMD'});
+}
+</script>
 </head>
 <body>
 
@@ -1292,7 +1305,7 @@ document.getElementById('form').addEventListener('submit', async function (e) {
     });
     document.getElementById('ok-nome').textContent = dados.nome.split(' ')[0];
     document.getElementById('form-wrap').style.display = 'none';
-    document.getElementById('tela-ok').classList.add('on');
+    document.getElementById('tela-ok').classList.add('on'); if (typeof gtag_form_conversion === 'function') gtag_form_conversion();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   } catch {
     btn.classList.remove('loading');

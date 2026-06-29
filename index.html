@@ -396,16 +396,16 @@ function iniciarRastreioLigacao() {
   if (typeof gtag !== 'undefined') {
     gtag('event', 'click_telefone', {event_category: 'contato', event_label: window.location.hostname});
   }
-  // Após 90s verifica se ainda está na página (proxy de conversão)
+  // Após 180s (3 min) verifica se ainda está na página (proxy de conversão)
   setTimeout(function() {
     if (typeof gtag !== 'undefined') {
-      gtag('event', 'conversion_ligacao_90s', {
+      gtag('event', 'conversion_ligacao_180s', {
         event_category: 'conversao',
         event_label: window.location.hostname,
         value: 1
       });
     }
-  }, 90000);
+  }, 180000);
 }
 </script>
 
