@@ -715,6 +715,11 @@ function gtag_form_conversion() {
   gtag('event', 'conversion', {'send_to': 'AW-946602849/AhBBCK64urgcEOGGsMMD'});
 }
 </script>
+<!-- Captura de GCLID (atribuicao offline paciente atendido) -->
+<script>
+(function(){try{var p=new URLSearchParams(location.search);var g=p.get('gclid')||p.get('gbraid')||p.get('wbraid');if(g)localStorage.setItem('pe_gclid',JSON.stringify({v:g,t:Date.now()}));}catch(e){}})();
+window.peGetGclid=function(){try{var r=localStorage.getItem('pe_gclid');if(!r)return'';var o=JSON.parse(r);if(o&&o.v&&(Date.now()-(o.t||0))<7776000000)return o.v;}catch(e){}return'';};
+</script>
 </head>
 <body>
 
@@ -1301,7 +1306,7 @@ document.getElementById('form').addEventListener('submit', async function (e) {
       method:  'POST',
       mode:    'no-cors',
       headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify(dados),
+      body:    JSON.stringify(Object.assign({gclid:(window.peGetGclid?window.peGetGclid():'')},dados)),
     });
     document.getElementById('ok-nome').textContent = dados.nome.split(' ')[0];
     document.getElementById('form-wrap').style.display = 'none';

@@ -109,6 +109,11 @@ function gtag_wa_conversion(url) {
   return false;
 }
 </script>
+<!-- Captura de GCLID (atribuicao offline paciente atendido) -->
+<script>
+(function(){try{var p=new URLSearchParams(location.search);var g=p.get('gclid')||p.get('gbraid')||p.get('wbraid');if(g)localStorage.setItem('pe_gclid',JSON.stringify({v:g,t:Date.now()}));}catch(e){}})();
+window.peGetGclid=function(){try{var r=localStorage.getItem('pe_gclid');if(!r)return'';var o=JSON.parse(r);if(o&&o.v&&(Date.now()-(o.t||0))<7776000000)return o.v;}catch(e){}return'';};
+</script>
 </head>
 <body>
 <header>
@@ -232,7 +237,7 @@ function enviar(){
   if(!estado.tipo){alert("Selecione o tipo de atendimento.");return;}if(!estado.periodo){alert("Selecione o período.");return;}
   var btn=document.getElementById('btn-sub');btn.disabled=true;btn.textContent="Registrando...";
   var d=new Date(PROX_DATA+'T12:00:00'),dl=d.toLocaleDateString('pt-BR',{weekday:'long',day:'2-digit',month:'2-digit'});
-  fetch(SCRIPT_URL,{method:"POST",body:JSON.stringify({nome:nome,whatsapp:wpp,cidade:CIDADE+" — "+CLINICA,tipo:estado.tipo,periodo:estado.periodo})})
+  fetch(SCRIPT_URL,{method:"POST",body:JSON.stringify({gclid:(window.peGetGclid?window.peGetGclid():''),nome:nome,whatsapp:wpp,cidade:CIDADE+" — "+CLINICA,tipo:estado.tipo,periodo:estado.periodo})})
   .then(function(){
     document.getElementById('form-card').style.display='none';gtag_form_conversion();
     document.getElementById('det').innerHTML='<strong>'+nome+'</strong>, agendamento para <strong>'+CIDADE+'</strong> registrado.<br>Próximo atendimento: <strong>'+dl+'</strong><br>'+TURNO_NOME[TURNO]+' · '+HORARIO+'<br>WhatsApp: <strong>'+wpp+'</strong>';
