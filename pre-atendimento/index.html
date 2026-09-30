@@ -805,6 +805,23 @@ window.peGetGclid=function(){try{var r=localStorage.getItem('pe_gclid');if(!r)re
         </div>
       </div>
 
+      <div class="two">
+        <div class="field">
+          <label for="cpf">CPF (opcional)</label>
+          <input type="text" id="cpf" name="cpf" inputmode="numeric" maxlength="14" placeholder="Somente números">
+          <span class="err-msg" id="e-cpf">Confira o CPF: informe os 11 dígitos ou deixe vazio.</span>
+        </div>
+        <div class="field">
+          <label for="rg">Identidade / RG (opcional)</label>
+          <input type="text" id="rg" name="rg" maxlength="40" placeholder="Número do documento">
+        </div>
+      </div>
+      <div class="field">
+        <label for="endereco">Endereço completo (opcional)</label>
+        <textarea id="endereco" name="endereco" rows="2" autocomplete="street-address" placeholder="Rua, número, complemento, bairro, cidade/UF e CEP"></textarea>
+        <p class="hint">Estes dados completam seu cadastro na recepção e no prontuário, sem precisar digitá-los novamente. CPF e RG são mascarados para a equipe de acesso restrito; suas informações clínicas vão diretamente ao médico.</p>
+      </div>
+
     </div>
   </div>
 
@@ -1119,7 +1136,9 @@ function validar() {
   set('nome', noNomeRo && !document.getElementById('nome').value.trim());
   const noWaRo = document.getElementById('wa-pre').style.display === 'none';
   set('wa', noWaRo && !document.getElementById('wa').value.trim());
-  set('nasc', !document.getElementById('nasc').value);
+  set('nasc', !dataNascimentoValida(valorCampo('nasc')));
+  const cpf = valorCampo('cpf').replace(/\D/g, '');
+  set('cpf', !!cpf && (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)));
   set('qp',   !document.getElementById('qp').value.trim());
   set('aut',  !document.querySelector('input[name=autorizacao]:checked'));
   return ok;
@@ -1134,6 +1153,15 @@ function numCampo(id) {
 
 function valorCampo(id) {
   return (document.getElementById(id)?.value || '').trim();
+}
+
+function dataNascimentoValida(raw) {
+  const m = raw.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  if (!m) return false;
+  const d = new Date(+m[3], +m[2] - 1, +m[1]);
+  const hoje = new Date(); hoje.setHours(23,59,59,999);
+  return +m[3] >= 1900 && d.getFullYear() === +m[3] &&
+    d.getMonth() === +m[2] - 1 && d.getDate() === +m[1] && d <= hoje;
 }
 
 function mascaraDN(el){ var v = el.value.replace(/\D/g,''); if (v.length >= 3) v = v.slice(0,2)+'/'+v.slice(2); if (v.length >= 6) v = v.slice(0,5)+'/'+v.slice(5,9); el.value = v; }
@@ -1266,6 +1294,9 @@ function coletar() {
     clinica:             document.getElementById('clinica').value,
     cidade:              document.getElementById('cidade').value.trim(),
     data_nascimento:     document.getElementById('nasc').value,
+    cpf:                 valorCampo('cpf').replace(/\D/g, ''),
+    rg:                  valorCampo('rg'),
+    endereco:            valorCampo('endereco'),
     queixa_principal:    document.getElementById('qp').value.trim(),
     queixa_secundaria:   document.getElementById('qs').value.trim(),
     antecedentes:        ant,
