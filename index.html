@@ -208,19 +208,31 @@ window.peGetGclid=function(){try{var r=localStorage.getItem('pe_gclid');if(!r)re
 </footer>
 <script>var CLINICA_ID="jaboatao";
 var SCRIPT_URL="https://script.google.com/macros/s/AKfycbw6ABM1F6UmxGGRjyHDCCN5jPlWgsFHZK3IhhBk3B-ymQLQOUQV6cPeyKf6P4VI9Om9/exec",CIDADE="Jaboatão",CLINICA="Clínica Jaboatão Centro";var FREQUENCIA="quinzenal",DIA_SEMANA=1,DATA_BASE="2026-05-18",TURNO="ambos",HORARIO="8h às 17h";
+// Extra operacional autorizado para 2026-10-08; não altera a recorrência.
+function considerarExtraOutubro(dataRegular, cidade) {
+  if (cidade !== 'Limoeiro' && cidade !== 'Carpina') return dataRegular;
+  var partesHoje = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'America/Fortaleza', year: 'numeric', month: '2-digit', day: '2-digit'
+  }).formatToParts(new Date());
+  function parte(tipo) { return partesHoje.filter(function(p) { return p.type === tipo; })[0].value; }
+  var hojeISO = parte('year') + '-' + parte('month') + '-' + parte('day');
+  if (hojeISO > '2026-10-08') return dataRegular;
+  var extra = new Date('2026-10-08T12:00:00');
+  return !dataRegular || extra < dataRegular ? extra : dataRegular;
+}
 function calcProximaData(){
   var hoje=new Date();hoje.setHours(0,0,0,0);
   if(FREQUENCIA==="semanal"){
     var d=new Date(hoje);
     var diff=(DIA_SEMANA-d.getDay()+7)%7;
     d.setDate(d.getDate()+(diff===0?7:diff));
-    return d;
+    return considerarExtraOutubro(d, CIDADE);
   }
   if(FREQUENCIA==="quinzenal"&&DATA_BASE){
     var base=new Date(DATA_BASE+"T12:00:00");
     var d=new Date(base);
     while(d<=hoje)d.setDate(d.getDate()+14);
-    return d;
+    return considerarExtraOutubro(d, CIDADE);
   }
   return new Date();
 }
@@ -262,13 +274,13 @@ function enviar(){
       var d = new Date(hoje);
       var diff = (DIA_SEMANA - d.getDay() + 7) % 7;
       d.setDate(d.getDate() + (diff === 0 ? 7 : diff));
-      return d;
+      return considerarExtraOutubro(d, CIDADE);
     }
     if (FREQ === 'quinzenal' && BASE) {
       var partes = BASE.split('-');
       var d = new Date(parseInt(partes[0]), parseInt(partes[1])-1, parseInt(partes[2]));
       while (d <= hoje) d.setDate(d.getDate() + 14);
-      return d;
+      return considerarExtraOutubro(d, CIDADE);
     }
     return null;
   }
@@ -340,7 +352,7 @@ function calcProxDataC(c) {
     d = new Date(c.base + "T12:00:00");
     while (d <= hoje) d.setDate(d.getDate() + 14);
   }
-  return d;
+  return considerarExtraOutubro(d, c.cidade);
 }
 
 function distKm(la1,lo1,la2,lo2) {
@@ -435,5 +447,7 @@ document.addEventListener('input', function(e) {
 });
 </script>
 
+<script src="regras-agenda.js"></script>
+<script src="agenda-publica.js"></script>
 </body>
 </html>
