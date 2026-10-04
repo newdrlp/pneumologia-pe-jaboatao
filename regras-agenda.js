@@ -44,6 +44,26 @@
     });
     return availability.sort(function(a,b) { return a.date.localeCompare(b.date) || (a.time||({manha:'08:00',tarde:'13:00'}[a.period])).localeCompare(b.time||({manha:'08:00',tarde:'13:00'}[b.period])); });
   }
+  function slotStart(slot) {
+    return slot.date+'T'+(slot.time || (slot.period==='tarde'?'13:00':'08:00'));
+  }
+  function distanceKm(a,b) {
+    var rad=Math.PI/180, lat=(b.lat-a.lat)*rad, lng=(b.lng-a.lng)*rad;
+    var h=Math.sin(lat/2)**2+Math.cos(a.lat*rad)*Math.cos(b.lat*rad)*Math.sin(lng/2)**2;
+    return 6371*2*Math.atan2(Math.sqrt(h),Math.sqrt(Math.max(0,1-h)));
+  }
+  function nearestAlternative(schedule,units,currentId,position) {
+    var firsts={};
+    schedule.forEach(function(slot){if(!firsts[slot.unitId] || slotStart(slot)<slotStart(firsts[slot.unitId])) firsts[slot.unitId]=slot;});
+    var local=units.filter(function(u){return u.id===currentId;})[0];
+    var origin=position || (local && local.coordinates);
+    if(!origin)return null;
+    var candidates=units.filter(function(u){return u.id!==currentId && u.active && u.coordinates && firsts[u.id];}).map(function(u){
+      return {unit:u,slot:firsts[u.id],distance:distanceKm(origin,u.coordinates)};
+    });
+    candidates.sort(function(a,b){return a.distance-b.distance || slotStart(a.slot).localeCompare(slotStart(b.slot)) || a.unit.id.localeCompare(b.unit.id);});
+    return candidates[0] || null;
+  }
   function dateLabel(date) { return date.split('-').reverse().join('/'); }
   function periodLabel(period,time) { return {manha:'pela manhã',tarde:'à tarde',dia_todo:'durante o dia',horario:'às '+time}[period]; }
   function preview(input, units) {
@@ -58,5 +78,5 @@
     if (input.action!=='suspend') out.push(line(input.target,false));
     return out.join(' ');
   }
-  root.AgendaRegional={resolve:resolve,preview:preview,periods:periods};
+  root.AgendaRegional={resolve:resolve,preview:preview,periods:periods,nearestAlternative:nearestAlternative};
 })(typeof globalThis!=='undefined'?globalThis:this);
